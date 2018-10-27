@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div id="menu">
+        <a href="{% url 'mainpage' %}">Logo</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'aboutpage' %}">О проекте</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'allFlatsIndex' %}">Квартиры</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'hodStroy' %}">Ход строительства</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'doki' %}">Документы</a>        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'contack' %}">Контакты</a>
+        {% if not user.is_authenticated %}&nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="{% url 'login' %}">Войти</a>
+        {% else %}
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% endif %}
+
+    </div>
+
+    <div id="menu">
+        <a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'ipoteca' %}">Ипотека от 6%</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'fz214' %}">Мы работаем по фз 214</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'rasr' %}">Квартиры в рассрочку</a>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="{% url 'remont' %}">Ремонт квартир</a>
+
+    </div>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>
