@@ -1,7 +1,12 @@
+import datetime
+
 from django.contrib.auth import authenticate, logout, login
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from zastroishik.forms import loginform
+from zayavka.forms import zayavkaFromSaitForm
+
 
 def loginView(request):
     if request.POST:
@@ -23,7 +28,20 @@ def logoutView(request):
     return render(request,'main/index.html')
 
 def mainPageView(request):
-    return render(request,'main/index.html')
+    if request.POST:
+        form = zayavkaFromSaitForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.date_sozd = datetime.datetime.now()
+            post.kanal_pr = 'Заявка с сайта'
+            post.status = 'Новая заявка'
+            ss = 'От ' + post.name_kl +' тел.'+str(post.tel)
+            send_mail('Поступила новая заявка на сайт', ss , 'zhem-otchet@mail.ru',
+                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+            post.save()
+    else:
+        form = zayavkaFromSaitForm()
+    return render(request,'main/index.html',{'tpForm':form})
 
 def AboutPageView(request):
     return render(request,'main/about.html')
@@ -35,7 +53,20 @@ def DokumentsPageView(request):
     return render(request,'main/doki.html')
 
 def ContactsPageView(request):
-    return render(request,'main/contacts.html')
+    if request.POST:
+        form = zayavkaFromSaitForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.date_sozd = datetime.datetime.now()
+            post.kanal_pr = 'Заявка с сайта'
+            post.status = 'Новая заявка'
+            post.save()
+            ss = 'От ' + post.name_kl +' тел.'+str(post.tel)
+            send_mail('Поступила новая заявка на сайт', ss , 'zhem-otchet@mail.ru',
+                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+    else:
+        form = zayavkaFromSaitForm()
+    return render(request,'main/contacts.html',{'tpForm':form})
 
 def IpotecaPageView(request):
     return render(request,'main/ipoteca.html')
@@ -48,4 +79,7 @@ def RasrochkaPageView(request):
 
 def RemontPageView(request):
     return render(request,'main/remon.html')
+
+def PoliticaConfPageView(request):
+    return render(request,'main/Politicakonf.html')
 
