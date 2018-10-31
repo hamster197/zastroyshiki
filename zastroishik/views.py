@@ -83,3 +83,4 @@ def RemontPageView(request):
 def PoliticaConfPageView(request):
     return render(request,'main/Politicakonf.html')
 
+

@@ -4,10 +4,12 @@ from django.db import models
 
 
 class Planirovki(models.Model):
-    pl_name = models.CharField(max_length=40, default='',verbose_name='Название планировки:')
-    corp_name_choise = (('1 корпус','1 корпус'),('2 корпус','2 корпус'))
-    corp_name = models.CharField(max_length=25, verbose_name=' Корпус:', default='', choices=corp_name_choise)
-    pinct = models.ImageField(verbose_name='Планировка квартиры:', upload_to='image', default='')
+    pl_name = models.CharField(max_length=140, default='',verbose_name='Название планировки:')
+    komn_choises=(('Выберите','Выберите'),('Студия','Студия'),('Однокомнатная','Однокомнатная'),('Двухкомнатная','Двухкомнатная'),
+                  ('Трехкомнатная','Трехкомнатная'))
+    komnat=models.CharField('Кол-во комнат', max_length=25, choices=komn_choises, default='')
+    ploshad = models.FloatField(verbose_name='Площадь квартиры:', default=0,validators=[MinValueValidator(7)])
+    pict = models.ImageField(verbose_name='Планировка квартиры:', upload_to='image', default='')
     def __str__(self):
         return self.pl_name
     class Meta:
@@ -15,19 +17,15 @@ class Planirovki(models.Model):
         verbose_name_plural = 'Планировки'
 
 class flat(models.Model):
-    korpus_choises = (('Выберите корпус','Выберите корпус'),('1 корпус','1 корпус'),('2 корпус','2 корпус'),
-                      ('3 корпус','3 корпус'))
-    korpus = models.CharField(max_length=20, verbose_name='Корпус:', choices=korpus_choises, default='')
+    korpus_choises = (('',''),('1 корпус','1 корпус'),('2 корпус','2 корпус'))
+    korpus = models.CharField(max_length=20, verbose_name='Корпус:', choices=korpus_choises, default='2 корпус')
     etag_choises = (('Выберите этаж','Выберите этаж'),('1 Этаж','1 Этаж'),('2 Этаж','2 Этаж'),('3 Этаж','3 Этаж'),
                     ('4 Этаж','4 Этаж'),('5 Этаж', '5 Этаж'), ('6 Этаж', '6 Этаж'), ('7 Этаж', '7 Этаж'),
-                    ('8 Этаж', '8 Этаж'))
-    etag = models.CharField(max_length=15,verbose_name='Этаж:', choices=etag_choises, default='')
-    komn_choises=(('Выберите','Выберите'),('Студия','Студия'),('Однокомнатная','Однокомнатная'),('Двухкомнатная','Двухкомнатная'),
-                  ('Трехкомнатная','Трехкомнатная'),('Многокомнатная','Многокомнатная'))
-    komnat=models.CharField('Кол-во комнат', max_length=25, choices=komn_choises, default='')
+                    ('8 Этаж', '8 Этаж'), ('9 Этаж', '9 Этаж'), ('10 Этаж', '10 Этаж'), ('11 Этаж', '11 Этаж'),
+                    ('12 Этаж', '12 Этаж'))
+    etag = models.CharField(max_length=15,verbose_name='Этаж:', choices=etag_choises, default='', blank=False)
     kv_numb = models.CharField(max_length=5, verbose_name='№ квартиры:', default='')
-    metrag = models.FloatField(verbose_name='Метраж квартиры:', default=0,validators=[MinValueValidator(7)])
-    cena_za_metr = models.IntegerField(verbose_name='Цена за метр:', default=0,validators=[MinValueValidator(10000)])
+    cena_za_metr = models.IntegerField(verbose_name='Цена за метр:', default=80000,validators=[MinValueValidator(10000)])
     vid_choises = (('на горы','на горы'),('на горы и море','на горы и море'),('на море и город','на море и город'),
                    ('на парк','на парк'),('во двор','во двор'))
     vid = models.CharField(max_length=40, verbose_name='Вид:', choices=vid_choises, default='')

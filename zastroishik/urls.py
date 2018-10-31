@@ -21,7 +21,7 @@ from . import views
 
 app_name='zastr'
 urlpatterns = [
-    path(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    #path(r'jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     path(r'select2/', include('django_select2.urls')),
     path(r'login', views.loginView, name='login'),
@@ -37,4 +37,5 @@ urlpatterns = [
     path(r'rasr', views.RasrochkaPageView, name='rasr'),
     path(r'remont', views.RemontPageView, name='remont'),
     path(r'politica', views.PoliticaConfPageView, name='politica'),
+
 ]
