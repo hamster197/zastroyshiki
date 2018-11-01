@@ -18,5 +18,5 @@ from django.urls import path
 
 app_name ='flats'
 urlpatterns = [
-    #path(r'^$',views.mainPageView, name='flatsIndex')
+   # path(r'FlatChange/',views.FlatChangeView, name='flatsChange')
 ]

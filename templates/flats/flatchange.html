@@ -1,0 +1,9 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    login
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{  tform.cena_za_metr}}{{ tform.status }} {{ tform.canal_prodagi }}
+        <button type="submit" class="save btn btn-default">Сохранить</button>
+        <button type="submit" class="save btn btn-default">Отменить</button>
+    </form>
+{% endblock %}

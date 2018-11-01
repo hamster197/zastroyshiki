@@ -18,7 +18,7 @@ class Planirovki(models.Model):
 
 class flat(models.Model):
     korpus_choises = (('',''),('1 корпус','1 корпус'),('2 корпус','2 корпус'))
-    korpus = models.CharField(max_length=20, verbose_name='Корпус:', choices=korpus_choises, default='2 корпус')
+    korpus = models.CharField(max_length=20, verbose_name='Корпус:', choices=korpus_choises, default='')
     etag_choises = (('Выберите этаж','Выберите этаж'),('1 Этаж','1 Этаж'),('2 Этаж','2 Этаж'),('3 Этаж','3 Этаж'),
                     ('4 Этаж','4 Этаж'),('5 Этаж', '5 Этаж'), ('6 Этаж', '6 Этаж'), ('7 Этаж', '7 Этаж'),
                     ('8 Этаж', '8 Этаж'), ('9 Этаж', '9 Этаж'), ('10 Этаж', '10 Этаж'), ('11 Этаж', '11 Этаж'),
@@ -31,8 +31,8 @@ class flat(models.Model):
     vid = models.CharField(max_length=40, verbose_name='Вид:', choices=vid_choises, default='')
     status_choises = (('Свободна','Свободна'),('Бронь','Бронь'),('Продана','Продана'))
     status = models.CharField(max_length=25, verbose_name='Статус:',choices=status_choises, default='Свободна')
-    canal_prodagi_choises = (('Агенство','Агенство'),('Частный риелтор','Частный риелтор'),
-                              ('Прямая продажа','Прямая продажа'))
+    canal_prodagi_choises = (('Прямая продажа','Прямая продажа'), ('Агенство','Агенство'),
+                             ('Частный риелтор','Частный риелтор'))
     canal_prodagi = models.CharField(max_length=35, verbose_name='Канал продажи:', choices=canal_prodagi_choises,
                                      default='')
     planirovka = models.ForeignKey(Planirovki, verbose_name='Планировка квартиры:', on_delete=models.CASCADE, default='')
