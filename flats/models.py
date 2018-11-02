@@ -31,6 +31,9 @@ class flat(models.Model):
     vid = models.CharField(max_length=40, verbose_name='Вид:', choices=vid_choises, default='')
     status_choises = (('Свободна','Свободна'),('Бронь','Бронь'),('Продана','Продана'))
     status = models.CharField(max_length=25, verbose_name='Статус:',choices=status_choises, default='Свободна')
+    sdelka_date = models.DateField(verbose_name='Дата сделки:',blank=True, null=True)
+    bron_date_start = models.DateField(verbose_name='Дата открытия брони:',blank=True,null=True)
+    bron_date_end = models.DateField(verbose_name='Дата закрытия брони:', blank=True, null=True)
     canal_prodagi_choises = (('Прямая продажа','Прямая продажа'), ('Агенство','Агенство'),
                              ('Частный риелтор','Частный риелтор'))
     canal_prodagi = models.CharField(max_length=35, verbose_name='Канал продажи:', choices=canal_prodagi_choises,
