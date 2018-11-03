@@ -24,6 +24,7 @@
         {% endif %}
         <li>kvart komnat {{  korp1_1etag.planirovka.komnat }}</li>
         <li>kvart planirovka {{  korp1_1etag.planirovka.pict }}</li>
+        <li><img src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
         <li>kvart ploshad {{  korp1_1etag.planirovka.ploshad }}</li>
         <li>kvart cena za metr {{  korp1_1etag.cena_za_metr }} </li>
         <li>itogo cena {% widthratio korp1_1etag.planirovka.ploshad 1  korp1_1etag.cena_za_metr %}</li>
