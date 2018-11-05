@@ -1,0 +1,14 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    Change
+        <form method="POST" class="post-form">{% csrf_token %}
+           Цена за метр {{  tform.bron_date_end }}
+           Внесено брони {{ tform.bron_vneseno }}
+           ФИО покупателя {{ tform.fio_pokupatel }}
+            тел. покупателя{{ tform.tel_pokupatel }}
+            Агенство{{ tform.agenstvo }}
+            Примечание{{ tform.prim }}
+        <button type="submit" class="save btn btn-default">Установить бронь</button>
+        <input value="Отмена" type="button" onclick="location.href='/apparts'" />
+    </form>
+{% endblock %}

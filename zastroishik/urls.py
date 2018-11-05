@@ -22,12 +22,14 @@ from . import views
 app_name='zastr'
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'flats/', include('flats.urls')),
     path(r'login', views.loginView, name='login'),
     path(r'logout', views.logoutView, name='logout'),
     path(r'', views.mainPageView, name='mainpage'),
     path(r'about', views.AboutPageView, name='aboutpage'),
     path(r'apparts', flats.views.FlatPageView, name='allFlatsIndex'),
     path(r'FlatChange/<int:idd>/',flats.views.FlatChangeView, name='flatsChange'),
+    path(r'FlatBron/<int:idd>/', flats.views.FlatBronView, name='flatsBron'),
     path(r'hodstroitelstva', views.HodStroitPageView, name='hodStroy'),
     path(r'documents', views.DokumentsPageView, name='doki'),
     path(r'contacts', views.ContactsPageView, name='contack'),

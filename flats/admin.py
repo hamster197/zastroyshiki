@@ -1,5 +1,5 @@
 from django.contrib import admin
-from flats.models import flat, Planirovki
+from flats.models import flat, Planirovki, agenstv_spr
 from zayavka.models import zayavka
 
 class flatFields(admin.ModelAdmin):
@@ -17,5 +17,7 @@ class zayavkaFields(admin.ModelAdmin):
 
 admin.site.register(flat, flatFields)
 admin.site.register(Planirovki, planirovkaFelds)
+admin.site.register(agenstv_spr)
 admin.site.register(zayavka, zayavkaFields)
+
 

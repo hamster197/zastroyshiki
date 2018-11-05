@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
-from flats.forms import FlatChangeForm
+from flats.forms import FlatChangeForm, FlatBronForm
 from flats.models import flat
+from zastroishik import urls
 
 
 def FlatPageView(request):
@@ -57,5 +58,23 @@ def FlatPageView(request):
 @login_required
 def FlatChangeView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
+    if request.POST:
+        form = FlatChangeForm(request.POST,instance=flats)
+        if form.is_valid():
+            if form.cleaned_data['status']=='Свободна':
+                form.save()
+                return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
     return render(request,'flats/flatchange.html',{'tform':form})
+
+@login_required
+def FlatBronView(request,idd):
+    flats = get_object_or_404(flat, pk=idd)
+    if request.POST:
+        form = FlatBronForm(request.POST,instance=flats)
+        if form.is_valid():
+            if form.cleaned_data['status']=='Свободна':
+                form.save()
+                return redirect('allFlatsIndex')
+    form = FlatBronForm(instance=flats)
+    return render(request,'flats/flatbron.html',{'tform':form})
