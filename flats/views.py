@@ -53,7 +53,7 @@ def FlatPageView(request):
                                               'tkorp2_7etag': korp2_7etag, 'tkorp2_7etag': korp2_7etag,
                                               'tkorp2_8etag': korp2_8etag, 'tkorp2_9etag': korp2_9etag,
                                               'tkorp2_10etag': korp2_10etag, 'tkorp2_11etag': korp2_11etag,
-                                              'tkorp21_12etag': korp2_12etag,
+                                              'tkorp2_12etag': korp2_12etag,
                                               })
 @login_required
 def FlatChangeView(request, idd):
@@ -61,7 +61,7 @@ def FlatChangeView(request, idd):
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
-            if form.cleaned_data['status']=='Свободна':
+            #if form.cleaned_data['status']=='Свободна':
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
@@ -78,3 +78,27 @@ def FlatBronView(request,idd):
                 return redirect('allFlatsIndex')
     form = FlatBronForm(instance=flats)
     return render(request,'flats/flatbron.html',{'tform':form})
+
+@login_required
+def FlatZayavkaView(request, idd):
+    flats = get_object_or_404(flat, pk=idd)
+    if request.POST:
+        form = FlatChangeForm(request.POST,instance=flats)
+        if form.is_valid():
+            if form.cleaned_data['status']=='Свободна':
+                form.save()
+                return redirect('allFlatsIndex')
+    form = FlatChangeForm(instance=flats)
+    return render(request,'flats/flatchange.html',{'tform':form})
+
+@login_required
+def FlatSdelkaView(request, idd):
+    flats = get_object_or_404(flat, pk=idd)
+    if request.POST:
+        form = FlatChangeForm(request.POST,instance=flats)
+        if form.is_valid():
+            if form.cleaned_data['status']=='Свободна':
+                form.save()
+                return redirect('allFlatsIndex')
+    form = FlatChangeForm(instance=flats)
+    return render(request,'flats/flatchange.html',{'tform':form})

@@ -18,5 +18,6 @@ from django.urls import path
 
 app_name ='flats'
 urlpatterns = [
-   # path(r'FlatChange/',views.FlatChangeView, name='flatsChange')
+        path(r'FlatChange/<int:idd>/', views.FlatChangeView, name='flatsChange'),
+        path(r'FlatBron/<int:idd>/', views.FlatBronView, name='flatsBron'),
 ]
