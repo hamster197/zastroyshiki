@@ -81,7 +81,6 @@ def FlatBronView(request,idd):
     if request.POST:
         form = FlatBronForm(request.POST,instance=flats)
         if form.is_valid():
-            if form.cleaned_data['status']=='Свободна':
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatBronForm(instance=flats)
@@ -96,7 +95,6 @@ def FlatSdelkaView(request, idd):
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
-            if form.cleaned_data['status']=='Свободна':
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
@@ -112,7 +110,6 @@ def FlatZayavkaPostView(request, idd):
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
-            if form.cleaned_data['status']=='Свободна':
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
