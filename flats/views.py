@@ -114,4 +114,4 @@ def FlatZayavkaPostView(request, idd):
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
     komnat = flats.planirovka.komnat
-    return render(request,'flats/flatZayav.html',{'tform':form, 'tkomnat':komnat})
+    return render(request,'flats/flatZayav.html',{'tform':form, 'tflat':flats})
