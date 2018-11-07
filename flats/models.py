@@ -41,8 +41,8 @@ class flat(models.Model):
                    ('на парк','на парк'),('во двор','во двор'))
     vid = models.CharField(max_length=40, verbose_name='Вид:', choices=vid_choises, default='')
     status_choises = (('Свободна','Свободна'),('Бронь','Бронь'),('Продана','Продана'))
-    planirovka = models.ForeignKey(Planirovki, verbose_name='Планировка квартиры:', on_delete=models.CASCADE, default='')
     status = models.CharField(max_length=25, verbose_name='Статус:',choices=status_choises, default='Свободна')
+    planirovka = models.ForeignKey(Planirovki, verbose_name='Планировка квартиры:', on_delete=models.CASCADE, default='')
     sdelka_date = models.DateField(verbose_name='Дата сделки:',blank=True, null=True)
     agenstvo = models.ForeignKey(agenstv_spr , verbose_name='Агенство:', on_delete=models.CASCADE, default='1')
     ###############################
