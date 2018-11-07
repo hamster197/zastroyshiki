@@ -1,0 +1,12 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    Change
+    {{ tkomnat }} квартира
+    {% comment %}
+        <form method="POST" class="post-form">{% csrf_token %}
+           Цена за метр {{  tform.cena_za_metr}}{{ tform.status }}
+        <button type="submit" class="save btn btn-default">Сохранить</button>
+        <input value="Отмена" type="button" onclick="location.href='/apparts'" />
+    </form>
+    {% endcomment %}
+{% endblock %}

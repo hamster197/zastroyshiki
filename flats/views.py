@@ -5,7 +5,9 @@ from flats.forms import FlatChangeForm, FlatBronForm
 from flats.models import flat
 from zastroishik import urls
 
-
+#################################
+## kvartiri all view
+#################################
 def FlatPageView(request):
     ###########################
     ## 1 Korpus
@@ -55,18 +57,24 @@ def FlatPageView(request):
                                               'tkorp2_10etag': korp2_10etag, 'tkorp2_11etag': korp2_11etag,
                                               'tkorp2_12etag': korp2_12etag,
                                               })
+
+#################################
+## kvartiri Chang view
+#################################
 @login_required
 def FlatChangeView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
-            #if form.cleaned_data['status']=='Свободна':
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
     return render(request,'flats/flatchange.html',{'tform':form})
 
+#################################
+## kvartiri bron view
+#################################
 @login_required
 def FlatBronView(request,idd):
     flats = get_object_or_404(flat, pk=idd)
@@ -79,18 +87,9 @@ def FlatBronView(request,idd):
     form = FlatBronForm(instance=flats)
     return render(request,'flats/flatbron.html',{'tform':form})
 
-@login_required
-def FlatZayavkaView(request, idd):
-    flats = get_object_or_404(flat, pk=idd)
-    if request.POST:
-        form = FlatChangeForm(request.POST,instance=flats)
-        if form.is_valid():
-            if form.cleaned_data['status']=='Свободна':
-                form.save()
-                return redirect('allFlatsIndex')
-    form = FlatChangeForm(instance=flats)
-    return render(request,'flats/flatchange.html',{'tform':form})
-
+#################################
+## kvartiri sdelka view
+#################################
 @login_required
 def FlatSdelkaView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
@@ -101,4 +100,21 @@ def FlatSdelkaView(request, idd):
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
-    return render(request,'flats/flatchange.html',{'tform':form})
+    komnat = flats.planirovka.komnat
+    return render(request,'flats/flatZayav.html',{'tform':form, 'tkomnat':komnat})
+
+#################################
+## kvartiri zakazat bron view
+#################################
+@login_required
+def FlatZayavkaPostView(request, idd):
+    flats = get_object_or_404(flat, pk=idd)
+    if request.POST:
+        form = FlatChangeForm(request.POST,instance=flats)
+        if form.is_valid():
+            if form.cleaned_data['status']=='Свободна':
+                form.save()
+                return redirect('allFlatsIndex')
+    form = FlatChangeForm(instance=flats)
+    komnat = flats.planirovka.komnat
+    return render(request,'flats/flatZayav.html',{'tform':form, 'tkomnat':komnat})

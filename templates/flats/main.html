@@ -31,9 +31,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_1etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_1etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_1etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_1etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_1etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_1etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -65,9 +65,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_2etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_2etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_2etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_2etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_2etag.pk %}">Сделка</a></li>
         {% endif %}
+        <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_2etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -99,9 +99,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_3etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_3etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_3etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_3etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_3etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_3etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -133,9 +133,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_4etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_4etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_4etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_4etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_4etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_4etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -167,9 +167,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_5etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_5etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_5etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_5etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_5etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_5etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -201,9 +201,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_6etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_6etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_6etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_6etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_6etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_6etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -235,9 +235,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_7etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_7etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_7etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_7etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_7etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_7etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -269,9 +269,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_8etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_8etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_8etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_8etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_8etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_8etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -303,9 +303,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_9etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_9etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_9etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_9etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_9etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_9etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -337,9 +337,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_10etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_10etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_10etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_10etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_10etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_10etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -371,9 +371,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_11etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_11etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_11etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_11etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_11etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_11etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -405,9 +405,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp1_12etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp1_12etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_12etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp1_12etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp1_12etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp1_12etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -439,9 +439,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_1etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_1etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_1etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_1etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_1etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_1etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -473,9 +473,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_2etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_2etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_2etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_2etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_2etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_2etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -507,9 +507,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_3etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_3etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_3etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_3etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_3etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_3etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -541,9 +541,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_4etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_4etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_4etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_4etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_4etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_4etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -575,9 +575,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_5etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_5etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_5etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_5etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_5etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_5etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -609,9 +609,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_6etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_6etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_6etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_6etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_6etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_6etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -643,9 +643,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_7etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_7etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_7etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_7etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_7etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_7etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -677,9 +677,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_8etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_8etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_8etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_8etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_8etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_8etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -711,9 +711,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_9etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_9etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_9etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_9etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_9etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_9etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -745,9 +745,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_10etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_10etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_10etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_10etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_10etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_10etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -779,9 +779,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_11etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_11etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_11etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_11etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_11etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_11etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}
@@ -813,9 +813,9 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'flats:flatsChange' idd=korp2_12etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             <li><a href="{% url 'flats:flatsBron' idd=korp2_12etag.pk %}">Бронь</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_12etag.pk %}">Сделка</a></li>
-            <li><a href="{% url 'flats:flatsBron' idd=korp2_12etag.pk %}">Заявка на бронь</a></li>
+            <li><a href="{% url 'flats:flatsSdelka' idd=korp2_12etag.pk %}">Сделка</a></li>
         {% endif %}
+            <li><a href="{% url 'flats:flatsZayavBron' idd=korp2_12etag.pk %}">Заявка на бронь</a></li>
         ------------------------------------------------
     {% endfor %}
 {% endif %}

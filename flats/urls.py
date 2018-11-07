@@ -20,4 +20,6 @@ app_name ='flats'
 urlpatterns = [
         path(r'FlatChange/<int:idd>/', views.FlatChangeView, name='flatsChange'),
         path(r'FlatBron/<int:idd>/', views.FlatBronView, name='flatsBron'),
+        path(r'FlatSdelka/<int:idd>/', views.FlatSdelkaView, name='flatsSdelka'),
+        path(r'FlatZayav/<int:idd>/', views.FlatZayavkaPostView, name='flatsZayavBron'),
 ]
