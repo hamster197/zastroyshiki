@@ -4,7 +4,8 @@
     <li>{% if tflat.planirovka.komnat == 'Студия'  %}{{ tflat.planirovka.komnat }} {% else %}{{ tflat.planirovka.komnat }} квартира{% endif %}</li>
     <li>kvart nimb {{  tflat.kv_numb }}</li>
     <li>status kvartiri</li>
-    <li><img src="{{MEDIA_URL}}{{ tflat.planirovka.pict }}"></li>
+    <li>{{MEDIA_URL}}{{ tflat.planirovka.pict }}</li>
+    <li><img src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
     <li>itogo cena {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %}</li>
     <li>korp {{ tflat.korpus }} kvart nimb {{  tflat.kv_numb }}</li>
     {% comment %}
