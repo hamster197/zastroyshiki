@@ -22,7 +22,7 @@
         {% if korp1_1etag.status == 'Продана' and user.is_authenticated %}
             <li>Дата сделки {{ korp1_1etag.sdelka_date }}</li>
         {% endif %}
-        <li>kvart komnat {{  korp1_1etag.planirovka.komnat }}</li>
+        <li>kvart komnat {{MEDIA_URL}} {{  korp1_1etag.planirovka.komnat }}</li>
         <li>kvart planirovka {{  korp1_1etag.planirovka.pict }}</li>
         <li><img src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
         <li>kvart ploshad {{  korp1_1etag.planirovka.ploshad }}</li>
