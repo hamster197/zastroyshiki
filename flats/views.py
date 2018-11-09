@@ -1,9 +1,13 @@
+from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 
-from flats.forms import FlatChangeForm, FlatBronForm
+from flats import forms
+from flats.forms import FlatChangeForm, FlatBronForm, FlatZayvkaForm, EstateAddForm
 from flats.models import flat
-from zastroishik import urls
 
 #################################
 ## kvartiri all view
@@ -79,12 +83,19 @@ def FlatChangeView(request, idd):
 def FlatBronView(request,idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
-        form = FlatBronForm(request.POST,instance=flats)
-        if form.is_valid():
+        if 'bron' in request.POST:
+            form = FlatBronForm(request.POST, instance=flats)
+            if form.is_valid():
                 form.save()
                 return redirect('allFlatsIndex')
+        if 'estateadd' in request.POST:
+            form = EstateAddForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('flats:flatsBron', idd=flats.pk)
     form = FlatBronForm(instance=flats)
-    return render(request,'flats/flatbron.html',{'tform':form})
+    estform = EstateAddForm(initial={'bron_date_end': datetime.now()})
+    return render(request,'flats/flatbron.html',{'tform':form, 'tEstForm': estform, 'tflat':flats})
 
 #################################
 ## kvartiri sdelka view
@@ -99,19 +110,30 @@ def FlatSdelkaView(request, idd):
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
     komnat = flats.planirovka.komnat
-    return render(request,'flats/flatZayav.html',{'tform':form, 'tkomnat':komnat})
+    return render(request,'flats/flatsdelka.html',{'tform':form, 'tkomnat':komnat})
 
 #################################
 ## kvartiri zakazat bron view
 #################################
-@login_required
+#@login_required
 def FlatZayavkaPostView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
-        form = FlatChangeForm(request.POST,instance=flats)
+        form = FlatZayvkaForm(request.POST)
         if form.is_valid():
-                form.save()
-                return redirect('allFlatsIndex')
-    form = FlatChangeForm(instance=flats)
-    komnat = flats.planirovka.komnat
-    return render(request,'flats/flatZayav.html',{'tform':form, 'tflat':flats})
+            zayv = form.save(commit=False)
+            zayv.date_sozd = datetime.datetime.now()
+            zayv.kanal_pr = 'Заявка с сайта(Бронь)'
+            zayv.corpus = flats.korpus
+            zayv.comnat = flats.planirovka.komnat
+            zayv.ploshad = str(flats.planirovka.ploshad)
+            zayv.kv_numb = flats.kv_numb
+            zayv.stoimost = flats.planirovka.ploshad * flats.cena_za_metr
+            zayv.status = 'Новая заявка'
+            ss = 'Поступила новая заявка на сайт(Бронь) тел. клиента ' + str(zayv.tel)+', ' + flats.korpus +', '+flats.planirovka.komnat+',№ кв. '+flats.kv_numb
+            send_mail('Поступила новая заявка на сайт(Бронь)', ss , 'zhem-otchet@mail.ru',
+                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+            zayv.save()
+            return redirect('allFlatsIndex')
+    zayav = FlatZayvkaForm()
+    return render(request,'flats/flatZayav.html',{'tform':zayav, 'tflat':flats})

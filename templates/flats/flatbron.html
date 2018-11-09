@@ -1,14 +1,30 @@
 {% extends 'main/main.html' %}
 {% block content %}
-    Change
+        Bron
+
         <form method="POST" class="post-form">{% csrf_token %}
-           Цена за метр {{  tform.bron_date_end }}
-           Внесено брони {{ tform.bron_vneseno }}
-           ФИО покупателя {{ tform.fio_pokupatel }}
-            тел. покупателя{{ tform.tel_pokupatel }}
-            Агенство{{ tform.agenstvo }}
-            Примечание{{ tform.prim }}
-        <button type="submit" class="save btn btn-default">Установить бронь</button>
+            ------------------</br>
+           <li>Корпус: {{ tflat.korpus }}</li>
+           <li>Этаж: {{ tflat.etag }}</li>
+           <li>№ квартиры: {{ tflat.kv_numb }}</li>
+           <li>Площадь: {{ tflat.planirovka.ploshad }}</li>
+           <li>Цена за метр: {{ tflat.cena_za_metr }}</li>
+           <li>Цена за квартиру: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} </li>
+           -------------------</br>
+           <li>Дата окончания брони: {{  tform.bron_date_end }}</li>
+           <li>Внесено брони: {{ tform.bron_vneseno }} </li>
+           <li>ФИО покупателя: {{ tform.fio_pokupatel }}</li>
+           <li> тел. покупателя:{{ tform.tel_pokupatel }}</li>
+           <li> Агенство:{{ tform.agenstvo }}</li>
+           <li> Примечание: {{ tform.prim }}</li>
+        <li><button type="submit" name = 'bron' class="save btn btn-default">Установить бронь</button>
+        <input value="Отмена" type="button" onclick="location.href='/apparts'" /></li>
+    </form>
+    </br>
+            ------------------Добавить агенство в справочник------------------
+    <form method="POST" class="post-form">{% csrf_token %}
+            Название агенства {{ tEstForm.ag_name }}
+        <button type="submit" name = 'estateadd' class="save btn btn-default">Добавить агенство</button>
         <input value="Отмена" type="button" onclick="location.href='/apparts'" />
     </form>
 {% endblock %}

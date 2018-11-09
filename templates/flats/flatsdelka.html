@@ -1,0 +1,10 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    sdelka
+    <form method="POST" class="post-form">{% csrf_token %}
+           Цена за метр {{  tform.bron_date_end }}
+        <button type="submit" class="save btn btn-default">Установить бронь</button>
+        <input value="Отмена" type="button" onclick="location.href='/apparts'" />
+    </form>
+
+{% endblock %}
