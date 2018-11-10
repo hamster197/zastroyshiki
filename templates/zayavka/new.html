@@ -1,9 +1,11 @@
 {% extends 'main/main.html' %}
 {% block content %}
-    Change
+New zayavka
+
     <form method="POST" class="post-form">{% csrf_token %}
-           Цена за метр {{  tform.cena_za_metr}}{{ tform.status }}
+           kanal privl {{  tform.kanal_pr}} imya kl  {{ tform.name_kl }} tel kl {{ tform.tel }} budget {{ tform.budget }} {{ tform.text }}
         <button type="submit" class="save btn btn-default">Сохранить</button>
         <input value="Отмена" type="button" onclick="location.href='/apparts'" />
     </form>
+
 {% endblock %}

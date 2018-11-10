@@ -38,16 +38,12 @@
     </div>
             {% if user.is_authenticated %}&nbsp; &nbsp; &nbsp; &nbsp;
         <div id="menu">
-        <a href="{% url 'mainpage' %}">Заявки</a>
+        <a href="{% url 'zayavka:allZayav' %}">Заявки( {{ tn3 }} )</a>
         &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'aboutpage' %}">АДМ1</a>
+        <a href="{% url 'zayavka:newZayav' %}">Подать заявку</a>
         &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'allFlatsIndex' %}">АДМ2</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'hodStroy' %}">АДМ3</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'doki' %}">Документы</a>        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'contack' %}">Контакты</a>
+        <a href="{% url 'allFlatsIndex' %}">Аналитика</a>
+
 
         {% endif %}
 

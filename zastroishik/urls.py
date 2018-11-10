@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import flats
-from flats import views
 from . import views
 
 app_name='zastr'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'flats', include('flats.urls')),
+    path(r'zayavka/', include('zayavka.urls')),
     path(r'login', views.loginView, name='login'),
     path(r'logout', views.logoutView, name='logout'),
     path(r'', views.mainPageView, name='mainpage'),

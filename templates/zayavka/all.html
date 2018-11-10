@@ -1,0 +1,45 @@
+{% extends 'main/main.html' %}
+{% block content %}
+all zayavki
+<li> new zayav count {{ tnzayav_count }}</li>
+<li> in work zayav count {{ twzayav_count }}</li>
+<li> sdelka zayav count {{ tszayav_count }}</li>
+<li> sriv zayav count {{ tozayav_count }}</li>
+----------------------------------------------</br>
+new zayav {{ tnzayav_count }}
+{% for nzayav in tnzayav %}
+    <li>date sozd {{ nzayav.date_sozd }}</li>
+    <li>kanal privl klienta {{ nzayav.kanal_pr }}</li>
+    <li>name klienta {{ nzayav.name_kl }}</li>
+    <li>tel klienta {{ nzayav.tel }}</li>
+    <li>budgetl klienta {{ nzayav.budget }}</li>
+    ---------------------
+{% endfor %}
+ zayavki in work {{ twzayav_count }}
+{% for wzayav in twzayav %}
+    <li>date sozd {{ wzayav.date_sozd }}</li>
+    <li>kanal privl klienta {{ wzayav.kanal_pr }}</li>
+    <li>name klienta {{ wzayav.name_kl }}</li>
+    <li>tel klienta {{ wzayav.tel }}</li>
+    <li>budgetl klienta {{ wzayav.budget }}</li>
+    ---------------------
+{% endfor %}
+ zayavki sdelka {{ tszayav_count }}
+{% for szayav in tszayav %}
+    <li>date sozd {{ szayav.date_sozd }}</li>
+    <li>kanal privl klienta {{ szayav.kanal_pr }}</li>
+    <li>name klienta {{ szayav.name_kl }}</li>
+    <li>tel klienta {{ szayav.tel }}</li>
+    <li>budgetl klienta {{ szayav.budget }}</li>
+    ---------------------
+{% endfor %}
+ zayavki otkaz {{ tozayav_count }}
+{% for ozayav in tozayav %}
+    <li>date sozd {{ ozayav.date_sozd }}</li>
+    <li>kanal privl klienta {{ ozayav.kanal_pr }}</li>
+    <li>name klienta {{ ozayav.name_kl }}</li>
+    <li>tel klienta {{ ozayav.tel }}</li>
+    <li>budgetl klienta {{ ozayav.budget }}</li>
+    ---------------------
+{% endfor %}
+{% endblock %}
