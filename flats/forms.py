@@ -13,6 +13,7 @@ class FlatChangeForm(forms.ModelForm):
         fields = ('cena_za_metr','status',)
 
 class FlatBronForm(forms.ModelForm):
+    fio_pokupatel = forms.CharField(label='dasd',help_text='wqeqweq')
     class Meta:
         model = flat
         fields = ['fio_pokupatel','tel_pokupatel','bron_date_end','bron_vneseno','agenstvo','prim']
@@ -20,14 +21,15 @@ class FlatBronForm(forms.ModelForm):
             'bron_date_end': DateInput(format='%Y-%m-%d', attrs={'type' : 'date'}),
             'agenstvo': CheckboxSelectMultiple(),
         }
+
     def clean(self):
         cleaned_data = super(FlatBronForm, self).clean()
         if int(cleaned_data['bron_vneseno'])<10000:
                 raise ValidationError('Внесенно брони меньше 10000!', code='invalid')
-        if cleaned_data['tel_pokupatel']=='+79881450000':
-                raise ValidationError('Введите правильный номер телефона!', code='invalid')
+
 
 class FlatZayvkaForm(forms.ModelForm):
+    tel = PhoneNumberField(help_text='qweqwe')
     class Meta:
         model = zayavka
         fields =['tel',]

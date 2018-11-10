@@ -2,7 +2,7 @@
 {% block content %}
     login
         <form method="POST" class="post-form">{% csrf_token %}
-            {{  tpform.username }}{{ tpform.passw }}
+           login {{  tpform.username }} password {{ tpform.passw }}
         <button type="submit" class="save btn btn-default">Войти</button>
     </form>
 {% endblock %}

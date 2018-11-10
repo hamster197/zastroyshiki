@@ -1,5 +1,5 @@
 from django.db import models
-
+from phonenumber_field.modelfields import PhoneNumberField
 
 class zayavka(models.Model):
     date_sozd = models.DateField(verbose_name='Дата создания:')
@@ -9,7 +9,7 @@ class zayavka(models.Model):
                         ('Тел.Звонок','Тел.Звонок'),('Разное','Разное'),('Заявка с сайта','Заявка с сайта'))
     kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:')
     name_kl = models.CharField(max_length=55, verbose_name='Имя клиента:', help_text='Имя')
-    tel = models.IntegerField(verbose_name='Телефон:',help_text='Ваш номер телефона:')
+    tel = PhoneNumberField(verbose_name='Телефон:',help_text='Ваш номер телефона:')
     text = models.TextField(verbose_name='Описание заявки:')
     status_ch = (('Новая заявка','Новая заявка'),('В работе','В работе'),('Сделка','Сделка'),('Отказ','Отказ'))
     status = models.CharField(verbose_name='Статус заявки:', max_length=35, choices=status_ch)

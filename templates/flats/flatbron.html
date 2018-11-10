@@ -12,14 +12,15 @@
            <li>Цена за квартиру: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} </li>
            -------------------</br>
            <li>Дата окончания брони: {{  tform.bron_date_end }}</li>
-           <li>Внесено брони: {{ tform.bron_vneseno }} </li>
+           <li>Внесено брони:(>10000) {{ tform.bron_vneseno }} </li>
            <li>ФИО покупателя: {{ tform.fio_pokupatel }}</li>
-           <li> тел. покупателя:{{ tform.tel_pokupatel }}</li>
+           <li> тел. покупателя:(+79880000000){{ tform.tel_pokupatel }} </li>
            <li> Агенство:{{ tform.agenstvo }}</li>
            <li> Примечание: {{ tform.prim }}</li>
         <li><button type="submit" name = 'bron' class="save btn btn-default">Установить бронь</button>
         <input value="Отмена" type="button" onclick="location.href='/apparts'" /></li>
-    </form>
+
+        </form>
     </br>
             ------------------Добавить агенство в справочник------------------
     <form method="POST" class="post-form">{% csrf_token %}

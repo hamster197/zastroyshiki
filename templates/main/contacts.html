@@ -3,7 +3,7 @@
 contacts</br>
     ОСТАВЬТЕ ЗАЯВКУ И МЫ ВАМ ПЕРЕЗВОНИМ!
             <form method="POST" class="post-form">{% csrf_token %}
-            {{  tpForm.name_kl }}{{ tpForm.tel }}
+            Vashe imya {{  tpForm.name_kl }}(+79880000000){{ tpForm.tel }}
         <button type="submit" class="save btn btn-default">Отправить</button>
     </form>
 {% endblock %}

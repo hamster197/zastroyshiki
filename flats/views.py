@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -122,7 +121,7 @@ def FlatZayavkaPostView(request, idd):
         form = FlatZayvkaForm(request.POST)
         if form.is_valid():
             zayv = form.save(commit=False)
-            zayv.date_sozd = datetime.datetime.now()
+            zayv.date_sozd = datetime.now()
             zayv.kanal_pr = 'Заявка с сайта(Бронь)'
             zayv.corpus = flats.korpus
             zayv.comnat = flats.planirovka.komnat
@@ -135,5 +134,6 @@ def FlatZayavkaPostView(request, idd):
                       ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
             zayv.save()
             return redirect('allFlatsIndex')
+        raise print(form.errors)
     zayav = FlatZayvkaForm()
     return render(request,'flats/flatZayav.html',{'tform':zayav, 'tflat':flats})
