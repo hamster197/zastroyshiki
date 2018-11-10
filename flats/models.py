@@ -48,7 +48,7 @@ class flat(models.Model):
     agenstvo = models.ManyToManyField(agenstv_spr)
     kanal_pr_choises = (('Разное','Разное'),('Авито','Авито'),('Домклик','Домклик'),('Яндекс','Яндекс'),('Циан','Циан'),
                         ('Тел.Звонок','Тел.Звонок'),('Агенство','Агенство'),('Заявка с сайта','Заявка с сайта'))
-    kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:', choices=kanal_pr_choises)
+    kanal_pr = models.CharField(max_length=35, verbose_name='Источник заявки:', choices=kanal_pr_choises, default=' ')
     ###############################
     #### Start For bron
     ###############################
