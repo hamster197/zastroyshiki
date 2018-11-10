@@ -7,7 +7,7 @@ class zayavka(models.Model):
     date_zakr = models.DateField(verbose_name='Дата закрытия заявки:', null=True, blank=True)
     kanal_pr_choises = (('Авито','Авито'),('Домклик','Домклик'),('Яндекс','Яндекс'),('Циан','Циан'),
                         ('Тел.Звонок','Тел.Звонок'),('Разное','Разное'),('Заявка с сайта','Заявка с сайта'))
-    kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:')
+    kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:', choices=kanal_pr_choises)
     name_kl = models.CharField(max_length=55, verbose_name='Имя клиента:', help_text='Имя')
     tel = PhoneNumberField(verbose_name='Телефон:',help_text='Ваш номер телефона:')
     text = models.TextField(verbose_name='Описание заявки:')

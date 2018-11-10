@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 
 from flats import forms
-from flats.forms import FlatChangeForm, FlatBronForm, FlatZayvkaForm, EstateAddForm
+from flats.forms import FlatChangeForm, FlatBronForm, FlatZayvkaForm, EstateAddForm, FlatSdelkaForm
 from flats.models import flat
 
 #################################
@@ -85,7 +85,11 @@ def FlatBronView(request,idd):
         if 'bron' in request.POST:
             form = FlatBronForm(request.POST, instance=flats)
             if form.is_valid():
-                form.save()
+                fl = form.save(commit=False)
+                fl.bron_date_start = datetime.now()
+                fl.status = 'Бронь'
+                fl.save()
+                form.save_m2m()
                 return redirect('allFlatsIndex')
         if 'estateadd' in request.POST:
             form = EstateAddForm(request.POST)
@@ -93,7 +97,7 @@ def FlatBronView(request,idd):
                 form.save()
                 return redirect('flats:flatsBron', idd=flats.pk)
     form = FlatBronForm(instance=flats)
-    estform = EstateAddForm(initial={'bron_date_end': datetime.now()})
+    estform = EstateAddForm()
     return render(request,'flats/flatbron.html',{'tform':form, 'tEstForm': estform, 'tflat':flats})
 
 #################################
@@ -103,13 +107,23 @@ def FlatBronView(request,idd):
 def FlatSdelkaView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
-        form = FlatChangeForm(request.POST,instance=flats)
-        if form.is_valid():
-                form.save()
+        if 'bron' in request.POST:
+            form = FlatSdelkaForm(request.POST, instance=flats)
+            if form.is_valid():
+                fl = form.save(commit=False)
+                fl.sdelka_date = datetime.now()
+                fl.status = 'Продана'
+                fl.save()
+                form.save_m2m()
                 return redirect('allFlatsIndex')
-    form = FlatChangeForm(instance=flats)
-    komnat = flats.planirovka.komnat
-    return render(request,'flats/flatsdelka.html',{'tform':form, 'tkomnat':komnat})
+        if 'estateadd' in request.POST:
+            form = EstateAddForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('flats:flatsSdelka', idd=flats.pk)
+    form = FlatSdelkaForm(instance=flats)
+    estform = EstateAddForm()
+    return render(request,'flats/flatsdelka.html',{'tform':form, 'tEstForm': estform, 'tflat':flats})
 
 #################################
 ## kvartiri zakazat bron view

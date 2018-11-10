@@ -46,6 +46,9 @@ class flat(models.Model):
     planirovka = models.ForeignKey(Planirovki, verbose_name='Планировка квартиры:', on_delete=models.CASCADE, default='')
     sdelka_date = models.DateField(verbose_name='Дата сделки:',blank=True, null=True)
     agenstvo = models.ManyToManyField(agenstv_spr)
+    kanal_pr_choises = (('Разное','Разное'),('Авито','Авито'),('Домклик','Домклик'),('Яндекс','Яндекс'),('Циан','Циан'),
+                        ('Тел.Звонок','Тел.Звонок'),('Агенство','Агенство'),('Заявка с сайта','Заявка с сайта'))
+    kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:', choices=kanal_pr_choises)
     ###############################
     #### Start For bron
     ###############################
@@ -53,7 +56,8 @@ class flat(models.Model):
     bron_date_end = models.DateField(verbose_name='Дата закрытия брони:', blank=True, null=True)
     bron_vneseno = models.IntegerField(verbose_name='Внесенно брони:',default=0,)
     fio_pokupatel = models.CharField(verbose_name='ФИО покупателя:', default=' ', max_length=75)
-    tel_pokupatel = PhoneNumberField(verbose_name='Телефон покупателя:', null=True, blank=True, help_text='+79881450000',)# default='+79881450000')
+    tel_pokupatel = PhoneNumberField(verbose_name='Телефон покупателя:', default='+70000000000', help_text='+79881450000',
+                                     blank=False)
     prim = models.TextField(verbose_name='Примечание;',default='',blank=False, null=False)
     ###############################
     #### End For bron
