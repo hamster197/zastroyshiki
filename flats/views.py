@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 
-from flats import forms
 from flats.forms import FlatChangeForm, FlatBronForm, FlatZayvkaForm, EstateAddForm, FlatSdelkaForm
 from flats.models import flat
 
@@ -128,7 +127,7 @@ def FlatSdelkaView(request, idd):
 #################################
 ## kvartiri zakazat bron view
 #################################
-#@login_required
+@login_required
 def FlatZayavkaPostView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:

@@ -20,6 +20,7 @@ app_name='zayavka'
 urlpatterns = [
     path(r'new/', views.newZayavView, name='newZayav'),
     path(r'all/', views.allZayavkaView, name='allZayav'),
-    #path(r'FlatChange/<int:idd>/', views.FlatChangeView, name='flatsChange'),
-
+    path(r'inwork/<int:idd>/', views.inWorkZayavkaView, name='flatsInWork'),
+    path(r'sdelka/<int:idd>/', views.SdelkaZayavkaView, name='flatsSdelka'),
+    path(r'otkaz/<int:idd>/', views.OtkazZayavkaView, name='flatsOtkaz'),
 ]
