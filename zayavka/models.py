@@ -14,7 +14,6 @@ class zayavka(models.Model):
     text = models.TextField(verbose_name='Описание заявки:')
     status_ch = (('Новая заявка','Новая заявка'),('В работе','В работе'),('Сделка','Сделка'),('Отказ','Отказ'))
     status = models.CharField(verbose_name='Статус заявки:', max_length=35, choices=status_ch)
-    #comment = models.TextField(verbose_name='Комментарий', blank=True)
     class Meta:
         verbose_name = 'Заявки'
         verbose_name_plural = 'Заявки'

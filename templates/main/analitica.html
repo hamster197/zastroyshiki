@@ -1,0 +1,166 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    Analitica</br>
+    Всего {{ tAllKv }} кв/На брони {{ tall_bron_kv }} кв/Продано {{ tall_prodano_kv }} кв</br>
+<html>
+  <head>
+
+<head>
+    <!-- Step 1 - Including the fusioncharts core library -->
+    <script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <!-- Step 2 - Including the fusion theme -->
+    <script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.theme.fusion.js"></script>
+</head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Продано', {{ one_korp_prod_kvart }}],
+          ['Свободно', {{ one_korp_sv_kvart }}],
+          ['Бронь', {{ one_korp_bron_kvart }}],
+        ]);
+
+        // Set chart options
+        var options = {'title':'1 Корпус',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+
+  </body>
+</html>
+
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Продано', {{ one_korp_prod_kvart }}],
+          ['Свободно', {{ one_korp_sv_kvart }}],
+          ['Бронь', {{ one_korp_bron_kvart }}],
+        ]);
+
+        // Set chart options
+        var options = {'title':'1 Корпус',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+
+  </body>
+</html>
+
+
+
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Продано',     {{ two_korp_prod_kvart }}],
+          ['Свободно',      {{ two_korp_sv_kvart }}],
+          ['Бронь',  {{ two_korp_bron_kvart }}],
+        ]);
+
+        var options = {
+          title: '2 Корпус',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 400px; height: 300px;"></div>
+
+
+  </body>
+</html>
+
+</br>Проданно 1 корпус в разрезе квартир
+    <li>Студий Всего {{ one_korp_prod_st_all }}; Продано {{ one_korp_prod_st }}</li>
+    <li>Однокомнатная Всего {{ one_korp_prod_OneKm_all }};Продано {{ one_korp_prod_OneKm }} </li>
+    <li>Двухкомнатная Всего {{ one_korp_prod_TwoKm_all }};Продано {{ one_korp_prod_TwoKm }}</li>
+    <li>Трехкомнатная Всего {{ one_korp_prod_ThreKm_all }};Продано {{ one_korp_prod_ThreKm }}</li>
+</br>Проданно 2 корпус в разрезе квартир
+    <li>Студий Всего {{ two_korp_prod_st_all }}; Продано {{ two_korp_prod_st }}</li>
+    <li>Однокомнатная Всего {{ two_korp_prod_OneKm_all }};Продано {{ two_korp_prod_OneKm }} </li>
+    <li>Двухкомнатная Всего {{ two_korp_prod_TwoKm_all }};Продано {{ two_korp_prod_TwoKm }}</li>
+    <li>Трехкомнатная Всего {{ two_korp_prod_ThreKm_all }};Продано {{ two_korp_prod_ThreKm }}</li>
+</br>Каналы продаж
+    <li> Разное {{ sdelka_razn_kn }}</li>
+    <li>Авито {{ sdelka_av_kn }}</li>
+    <li>Домклик(Сбербанк) {{ sdelka_dm_kn }}</li>
+    <li>Яндекс {{ sdelka_ya_kn }}</li>
+    <li>Циан {{ sdelka_cian_kn }}</li>
+    <li>Тел.звонок {{ sdelka_tel_kn  }}</li>
+    <li>Аг.недвижимости {{ sdelka_ag_kn }}</li>
+    <li>Сайт компании{{ sdelka_sait_kn }}</li>
+
+</br>Каналы поступления заявок
+    <li> Разное {{ zayav_kn_raz }}</li>
+    <li>Авито {{ zayav_kn_av }}</li>
+    <li>Домклик(Сбербанк) {{ zayav_kn_dm }}</li>
+    <li>Яндекс {{ zayav_kn_ya }}</li>
+    <li>Циан {{ zayav_kn_cian }}</li>
+    <li>Тел.звонок {{ zayav_kn_tel  }}</li>
+    <li>Сайт компании {{ zayav_kn_sait }}</li>
+{% endblock %}

@@ -36,5 +36,5 @@ urlpatterns = [
     path(r'rasr', views.RasrochkaPageView, name='rasr'),
     path(r'remont', views.RemontPageView, name='remont'),
     path(r'politica', views.PoliticaConfPageView, name='politica'),
-
+    path(r'analitic', views.AnaliticaView, name='analitics'),
 ]

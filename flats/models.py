@@ -20,6 +20,7 @@ class Planirovki(models.Model):
 
 class agenstv_spr(models.Model):
     ag_name = models.CharField(verbose_name='Название агенства:',max_length=80, default='')
+    kol_sdel = models.IntegerField(verbose_name='Кол-во сделок;', default=0)
     def __str__(self):
         return self.ag_name
     class Meta:
