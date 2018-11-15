@@ -1,0 +1,33 @@
+{% extends 'main/main.html' %}
+{% block content %}
+    statistika po sdelkam
+    <form method="POST" class="post-form">{% csrf_token %}
+            start date {{  tform.date_st }} end date {{ tform.date_end }}
+        <button type="submit" class="save btn btn-default">search</button>
+    </form>
+    Sdelki
+    {% for sdelki in tsdelki %}
+        <li>date {{ sdelki.sdelka_date }}; korpus {{ sdelki.korpus }}; etag {{ sdelki.etag }};
+            kv numb {{ sdelki.kv_numb }}; agents: {{  sdelki.agenstvo.all|join:", " }} </li>
+        <li>kv ploshad {{ sdelki.planirovka.ploshad  }}({{ sdelki.planirovka.komnat }});
+            kv cena za metr {{ sdelki.cena_za_metr }}rub;
+            kv all cena {% widthratio sdelki.planirovka.ploshad 1  sdelki.cena_za_metr %} rub </li>
+        <li>fio pokup {{ sdelki.fio_pokupatel }}; tel pokup {{ sdelki.tel_pokupatel }}; prim {{ sdelki.prim }} </li>
+        ------------------------------------------------------------------------------------------------------------------
+    {% endfor %}
+    </br>Bron
+    {% for bron in tbron %}
+        <li>korpus {{ bron.korpus }}; etag {{ bron.etag }}; kv numb {{ bron.kv_numb }};
+            agents {{  bron.agenstvo.all|join:", " }}</li>
+
+        <li>kv ploshad {{ bron.planirovka.ploshad  }}({{ bron.planirovka.komnat }});
+            kv cena za metr {{ born.cena_za_metr }}rub;
+            kv all cena {% widthratio bron.planirovka.ploshad 1  bron.cena_za_metr %} rub </li>
+
+        <li>fio pokup {{ bron.fio_pokupatel }}; tel pokup {{ bron.tel_pokupatel }}; prim {{ bron.prim }} </li>
+        <li>bron_date_start {{ bron.bron_date_start }}; bron_date_end {{ bron.bron_date_end  }}
+            ;bron_vneseno {{ bron.bron_vneseno }} rub </li>
+    --------------------------------------------------------------------------------------------------------------------
+    {% endfor %}
+
+{% endblock %}

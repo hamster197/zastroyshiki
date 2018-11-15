@@ -3,7 +3,7 @@ from flats.models import flat, Planirovki, agenstv_spr
 from zayavka.models import zayavka
 
 class flatFields(admin.ModelAdmin):
-    list_display = ('kv_numb','korpus','etag','cena_za_metr','status')
+    list_display = ('kv_numb','korpus','etag','cena_za_metr','status',)
     list_filter = ('korpus','etag',)
 
 class planirovkaFelds(admin.ModelAdmin):

@@ -43,3 +43,4 @@ class EstateAddForm(forms.ModelForm):
     class Meta:
         model = agenstv_spr
         fields = ['ag_name',]
+

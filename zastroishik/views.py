@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 
 from flats.models import flat, agenstv_spr
-from zastroishik.forms import loginform
+from zastroishik.forms import loginform, SdelkiDateForm
 from zayavka.forms import zayavkaFromSaitForm
 from zayavka.models import zayavka
 
@@ -86,6 +86,16 @@ def RemontPageView(request):
 
 def PoliticaConfPageView(request):
     return render(request,'main/Politicakonf.html')
+
+@login_required
+def SdekaAnView(request):
+    form = SdelkiDateForm(initial={'date_st':datetime.now().date()-timedelta(days=datetime.now().day)+timedelta(days=1),
+                                   'date_end':datetime.now()})
+    ds = datetime.now().date()-timedelta(days=datetime.now().day)+timedelta(days=1)
+    sdelki = flat.objects.filter(status='Продана', sdelka_date__gte=ds, sdelka_date__lte=datetime.now())
+    bron = flat.objects.filter(status='Бронь')
+    return render(request,'main/sdelkiStat.html', {'tform':form,'tsdelki':sdelki,'tbron':bron})
+
 
 @login_required
 def AnaliticaView(request):
