@@ -145,6 +145,12 @@
     <li>Однокомнатная Всего {{ two_korp_prod_OneKm_all }};Продано {{ two_korp_prod_OneKm }} </li>
     <li>Двухкомнатная Всего {{ two_korp_prod_TwoKm_all }};Продано {{ two_korp_prod_TwoKm }}</li>
     <li>Трехкомнатная Всего {{ two_korp_prod_ThreKm_all }};Продано {{ two_korp_prod_ThreKm }}</li>
+
+</br>Каналы продаж(по агенствам)
+    {% for ag in tag %}
+        <li>{{ ag.ag_name }}: {{ ag.kol_sdel }} сделок </li>
+    {% endfor %}
+
 </br>Каналы продаж
     <li> Разное {{ sdelka_razn_kn }}</li>
     <li>Авито {{ sdelka_av_kn }}</li>
@@ -163,4 +169,5 @@
     <li>Циан {{ zayav_kn_cian }}</li>
     <li>Тел.звонок {{ zayav_kn_tel  }}</li>
     <li>Сайт компании {{ zayav_kn_sait }}</li>
+
 {% endblock %}

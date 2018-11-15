@@ -167,6 +167,7 @@ def AnaliticaView(request):
     for ag in agenstv_spr.objects.all():
         ag.kol_sdel = flat.objects.filter(agenstvo = ag.id).count()
         ag.save()
+    ag = agenstv_spr.objects.all()[:10]
 
     return render(request, 'main/analitica.html',{'tAllKv':all_kv,'tall_bron_kv':all_bron_kv,'tall_prodano_kv':all_prodano_kv,
                                                   'one_korp_prod_kvart':one_korp_prod_kvart,
@@ -187,7 +188,7 @@ def AnaliticaView(request):
                                                   'sdelka_ag_kn':sdelka_ag_kn,'sdelka_sait_kn':sdelka_sait_kn,
                                                   'zayav_kn_av':zayav_kn_av,'zayav_kn_dm':zayav_kn_dm,'zayav_kn_ya':zayav_kn_ya,
                                                   'zayav_kn_cian':zayav_kn_cian,'zayav_kn_tel':zayav_kn_tel,
-                                                  'zayav_kn_raz':zayav_kn_raz,'zayav_kn_sait':zayav_kn_sait,
+                                                  'zayav_kn_raz':zayav_kn_raz,'zayav_kn_sait':zayav_kn_sait,'tag':ag,
                                                   })
 
 
