@@ -21,7 +21,7 @@ from . import views
 app_name='zastr'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'flats', include('flats.urls')),
+    path(r'flats/', include('flats.urls')),
     path(r'zayavka/', include('zayavka.urls')),
     path(r'login', views.loginView, name='login'),
     path(r'logout', views.logoutView, name='logout'),
