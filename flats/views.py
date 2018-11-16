@@ -77,7 +77,6 @@ def FlatChangeView(request, idd):
 #################################
 ## kvartiri bron view
 #################################
-@login_required
 def FlatBronView(request,idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
