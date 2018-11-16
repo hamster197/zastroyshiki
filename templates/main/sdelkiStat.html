@@ -2,10 +2,10 @@
 {% block content %}
     statistika po sdelkam
     <form method="POST" class="post-form">{% csrf_token %}
-            start date {{  tform.date_st }} end date {{ tform.date_end }}
+         start date {{  tform.date_st }} end date {{ tform.date_end }}
         <button type="submit" class="save btn btn-default">search</button>
     </form>
-    Sdelki
+    Sdelki     {{ a }}
     {% for sdelki in tsdelki %}
         <li>date {{ sdelki.sdelka_date }}; korpus {{ sdelki.korpus }}; etag {{ sdelki.etag }};
             kv numb {{ sdelki.kv_numb }}; agents: {{  sdelki.agenstvo.all|join:", " }} </li>
@@ -17,6 +17,9 @@
     {% endfor %}
     </br>Bron
     {% for bron in tbron %}
+        {% if bron.bron_date_end|timesince >= "1440 min" %}
+            <li><strong>Prosrochka vneseniya broni!</strong> </li>
+        {% endif %}
         <li>korpus {{ bron.korpus }}; etag {{ bron.etag }}; kv numb {{ bron.kv_numb }};
             agents {{  bron.agenstvo.all|join:", " }}</li>
 

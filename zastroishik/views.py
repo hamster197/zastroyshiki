@@ -89,12 +89,25 @@ def PoliticaConfPageView(request):
 
 @login_required
 def SdekaAnView(request):
-    form = SdelkiDateForm(initial={'date_st':datetime.now().date()-timedelta(days=datetime.now().day)+timedelta(days=1),
-                                   'date_end':datetime.now()})
-    ds = datetime.now().date()-timedelta(days=datetime.now().day)+timedelta(days=1)
-    sdelki = flat.objects.filter(status='Продана', sdelka_date__gte=ds, sdelka_date__lte=datetime.now())
-    bron = flat.objects.filter(status='Бронь')
-    return render(request,'main/sdelkiStat.html', {'tform':form,'tsdelki':sdelki,'tbron':bron})
+    if request.POST:
+        a = 'bbbbb'
+        form = SdelkiDateForm(request.POST)
+        if form.is_valid():
+            a= 'asdasdsa'
+            ds = form.cleaned_data['date_st']
+            de = form.cleaned_data['date_end']
+    else:
+        a = '1111'
+        form = SdelkiDateForm(
+            initial={'date_st': datetime.now().date() - timedelta(days=datetime.now().day) + timedelta(days=1),
+                     'date_end': datetime.now()})
+        ds = datetime.now().date()-timedelta(days=datetime.now().day)+timedelta(days=1)
+        de = datetime.now()
+    sdelki = flat.objects.filter(status='Продана', sdelka_date__gte=ds,
+                                         sdelka_date__lte= de).order_by('-sdelka_date')
+    bron = flat.objects.filter(status='Бронь').order_by('-bron_date_end')
+
+    return render(request,'main/sdelkiStat.html', {'tform':form,'tsdelki':sdelki,'tbron':bron, 'a':a})
 
 
 @login_required

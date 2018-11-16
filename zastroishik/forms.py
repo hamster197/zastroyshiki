@@ -11,10 +11,6 @@ class SdelkiDateForm(forms.Form):
     date_st =  forms.DateField(label='Начало периода:', widget=DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
     date_end = forms.DateField(label='Конец периода:', widget=DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
 
-    def clean(self):
-        cleaned_data = super(SdelkiDateForm, self).clean()
-        if cleaned_data['date_st']<cleaned_data['date_end']:
-                raise ValidationError('Дата старта меньше даты окончания периода!', code='invalid')
 
 
 
