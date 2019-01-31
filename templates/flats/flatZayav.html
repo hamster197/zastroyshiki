@@ -1,15 +1,125 @@
 {% extends 'main/main.html' %}
+
 {% block content %}
-    zayav
-    <li>{% if tflat.planirovka.komnat == 'Студия'  %}{{ tflat.planirovka.komnat }} {% else %}{{ tflat.planirovka.komnat }} квартира{% endif %}</li>
-    <li>kvart nimb {{  tflat.kv_numb }}</li>
-    <li>status kvartiri</li>
-    <li>{{MEDIA_URL}}{{ tflat.planirovka.pict }}</li>
-    <li><img src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
-    <li>itogo cena {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %}</li>
-    <li>korp {{ tflat.korpus }} kvart nimb {{  tflat.kv_numb }}</li>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{  tform.tel }}
-        <button type="submit" class="save btn btn-default">Заказать</button>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}
+.content-footer{display: none;}
+header.main-header {display: none;}
+.content-holder {
+    top: 0;
+}
+.main-footer {
+    top: 0;
+}
+.height-emulator {
+    display: none;
+}
+.content {box-shadow: none;}
+body {background: #fff;}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+
+                        <!--  section  -->
+                        <section style="padding: 10px 0;">
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+{% load staticfiles %}
+<div class="col-md-3">
+<div class="uk-card uk-card-primary uk-card-body">
+<h3 class="uk-card-title">Бронирование квартиры</h3>
+<p>Номер квартиры: {{  tflat.kv_numb }}<br>
+Корпус: {{ tflat.korpus }} <br>
+Планировка: {% if tflat.planirovka.komnat == 'Студия'  %}{{ tflat.planirovka.komnat }} {% else %}{{ tflat.planirovka.komnat }} квартира{% endif %}</p>
+<h4 class="uk-card-title">{% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span></h4>
+</div>
+</div>
+<div class="col-md-4">
+<div class="uk-card uk-card-default uk-card-body">
+<div uk-lightbox>
+<a data-caption="Планировка квартиры" href="{{ MEDIA_URL }}{{ tflat.planirovka.pict }}"><img src="{{ MEDIA_URL }}{{ tflat.planirovka.pict }}"></a>
+</div>
+</div>
+</div>
+<div class="col-md-5">
+<div class="uk-card uk-card-hover uk-card-body">
+    <h5>Введите номер телефона</h5>
+         <form method="POST" class="post-form">{% csrf_token %}
+         <div class="uk-margin" uk-margin>
+           <div uk-form-custom="target: true"> {{  tform.tel }}</div>
+        <button class="uk-button uk-button-danger uk-button-large" type="submit">Заказать</button></div>
     </form>
+    <h6>Пример: +79880000000</h6>
+</div>
+</div>
+
+</div>
+
+
+ </div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
 {% endblock %}

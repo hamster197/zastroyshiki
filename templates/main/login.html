@@ -1,8 +1,42 @@
 {% extends 'main/main.html' %}
+
+
 {% block content %}
-    login
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+                        <!--  section  -->
+                        <section class="parallax-section header-section" data-scrollax-parent="true">
+                            <div class="bg"  data-bg="static/images/bg/sl1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="overlay"></div>
+                            <div class="container big-container">
+                                <div class="section-title">
+                                    <h3>Вход в систему</h3>
+                                    <div class="separator trsp-separator"></div>
+                                    <h2>Для сотрудников</h2>
+                                    <p>Эта страница для технического управления</p>
+<a href="#sec1" class="custom-scroll-link sect-scroll-link"><i class="fa fa-long-arrow-down"></i> <span>Вниз</span></a>
+                                </div>
+                            </div>
+                        </section>
+                        <!--  section  end-->
+                        <!--  section  -->
+                        <section >
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">          <div class="col-md-9">
         <form method="POST" class="post-form">{% csrf_token %}
-           login {{  tpform.username }} password {{ tpform.passw }}
-        <button type="submit" class="save btn btn-default">Войти</button>
+ <p>Логин<br> {{  tpform.username }}</p><p>Пароль<br> {{ tpform.passw }}</p><p>
+<button type="submit" id="submit" style="float: none;" data-top-bottom="transform: translateY(-50px);" data-bottom-top="transform: translateY(50px);"><span>Войти</span></button></p>
     </form>
+
+                     </div></div></div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
+
 {% endblock %}

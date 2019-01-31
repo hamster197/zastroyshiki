@@ -1,61 +1,284 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="ru">
     <head>
+        <!--=============== basic  ===============-->
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>ЖК Гранд Парк - Официальный сайт застройщика</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->
+        <link type="text/css" rel="stylesheet" href="/static/css/reset.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/yourstyle.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/shop.css">
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="/static/images/favicon.ico">
     </head>
-    <div id="menu">
-        <a href="{% url 'mainpage' %}">Logo</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'aboutpage' %}">О проекте</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'allFlatsIndex' %}">Квартиры</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'hodStroy' %}">Ход строительства</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'doki' %}">Документы</a>        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'contack' %}">Контакты</a>
-        {% if not user.is_authenticated %}&nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="{% url 'login' %}">Войти</a>
-        {% else %}
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="{% url 'logout' %}">Выйти</a>
-        {% endif %}
+<style>
 
-    </div>
+.clients-list a {
+    color: white;
+}
 
-    <div id="menu">
-        <a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'ipoteca' %}">Ипотека от 6%</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'fz214' %}">Мы работаем по фз 214</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'rasr' %}">Квартиры в рассрочку</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'remont' %}">Ремонт квартир</a>
+.clients-list li {
+    background: #3fa99e;
+}
 
-    </div>
-            {% if user.is_authenticated %}&nbsp; &nbsp; &nbsp; &nbsp;
-        <div id="menu">
-        <a href="{% url 'zayavka:allZayav' %}">Заявки( {{ tn3 }} )</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'zayavka:newZayav' %}">Подать заявку</a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'analitics' %}">Аналитика</a>
-       &nbsp; &nbsp; &nbsp; &nbsp;
-        <a href="{% url 'sdelkistat' %}">Сделки</a>
+.serv-price-wrap {
+    background: #3fa99e;
+}
+.header-section {
+    background: #3fa99e;
+}
+.to-top {
+    background: #3fa99e;
+}
+.flat-btn {
+    background: #3fa99e;
+    border: 1px solid #fff;
+}
+a.pop.share-icon.share-icon-facebook {
+    display: none;
+}
+.fa-phone:before {
+    font-size: 1.1em;
+}
+.search-form-wrap {
+    top: 15%;
+}
+input {
+    background-color: #f1f1f1;
+    font-size: 12px;
+    height: 55px;
+    padding: 0 20px;
+    border: none;
+    margin: 1px 0;
+}
+button.save.btn.btn-default {
+    height: 55px;
+    float: right;
+    background: #292929;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+p.small {
+    font-size: 0.8em;
+}
+.parallax-text h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+@media (min-width: 1000px) {
+html {overflow: hidden;}
+.logo-holder img {
+    width: auto;
+    height: 110px !important;
+    float: left;
+    margin-left: 100px;
+    background: #f9f9f9;
+}
+    .logo-holder {
+    padding-top: unset;
+}
+.show-search {
+    background: #3fa99e;
+    color: white;
+    font-size: 2em;}
+.show-share-wrap div img {
+    width: auto;
+    height: 26px;
+    margin-top: -5px;
+    margin-left: 0;
+}
+@-moz-document url-prefix() {
+       html {overflow: auto;}
+         }
+}
+@media (max-width: 1000px) {
+.logo-holder img {
+    width: auto;
+    height: 85px !important;
+    float: left;
+    background: #f9f9f9;
+}
+    .logo-holder {
+    padding-top: unset;
+}
+}
+@media only screen and (max-width: 540px){
+.show-share-wrap {
+    display: unset;
+    width: 80px;
+}
+}
 
-
-
-        {% endif %}
-
-    </div>
+</style>
     <body>
-            {% block content %} {% load static %}{% endblock %}
-    </body>
-        <footer>
- <a href="{% url 'politica' %}">Политика конфиденциальности</a>
-    </footer>
+        <!-- loader -->
+        <div class="loader">
+            <div id="movingBallG">
+                <div class="movingBallLineG"></div>
+                <div id="movingBallG_1" class="movingBallG"></div>
+            </div>
+        </div>
+        <!-- loader end -->
+        <!--================= Main   ================-->
+        <div id="main">
+            <!--================= wrapper ================-->
+            <!--================= header ================-->
+            <header class="main-header">
+                <!-- logo -->
+                <a class="logo-holder" href="/"><img src="/static/images/logo-gp-2.png" alt=""></a>
+                <!-- logo end -->
+                <!-- share button-->
+                <div class="show-share-wrap">
+                    <div class="show-share"><span></span><img src="/static/images/login.png"></div>
+                </div>
+                <!-- share button end-->
+<!-- search button-->
+                <div class="show-search show-fixed-search vissearch"><i class="fa fa-phone"></i></div>
+                <!-- search button end -->
+                <div class="sb-menu-button-wrap">
+                    <div class="sb-menu-button vis-m"><span></span><span></span><span></span></div>
+                </div>
+                <div class="header-info">
+                    <ul>
+                        <li><a href="#"> <span>Звоните:</span> 8 (800) 300-00-60</a></li>
+                        <li><a href="#"> <span>Адрес:</span> г. Сочи ул.Тимирязева 34Б</a></li>
+                    </ul>
+                </div>
+            </header>
+            <!-- header  end -->
+            <!-- sidebar-menu -->
+            <div class="sb-overlay"></div>
+            <div class="sidebar-menu fl-wrap">
+                <div class="hid-men-wrap">
 
+                    <div class="clearfix"></div>
+                    <div id="hid-men2" class="menusb">
+                        <ul class="menu">
+                            <li><a href="/" class="ajax">Главная (О проекте)</a></li>
+                            <li><a href="{% url 'allFlatsIndex' %}" class="ajax">Выбрать квартиру</a></li>
+                            <li><a href="{% url 'ipoteca' %}">Ипотека</a></li>
+                            <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
+                            <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
+                            <li><a href="{% url 'hodStroy' %}" class="ajax">Ход строительства</a></li>
+                            <li><a href="{% url 'doki' %}" class="ajax">Документы (О компании)</a></li>
+                            <li><a href="{% url 'contack' %}" class="ajax">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="fl-wrap sb-menu-footer">
+                        &#169; ЖК ГРАНД ПАРК.  Официальный сайт.
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar-menu end-->
+            {% block content %} {% load static %}{% endblock %}
+
+                    <!--=============== content-footer   ===============-->
+<div class="height-emulator"></div>
+                    <footer class="content-footer">
+                        <div class="footer-inner">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a class="footer-logo" href="index.html"><img src="/static/images/logo-gp-2.png" alt=""></a>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="footer-header fl-wrap"><span>01.</span> Связаться с нами</div>
+                                    <div class="footer-box fl-wrap">
+                                        <ul>
+                                            <li><span>Эл.почта:</span><a href="#" target="_blank">info@grandpark.ru</a></li>
+                                            <li> <span>Адрес:</span><a href="#" target="_blank">г. Сочи ул.Тимирязева 34Б</a></li>
+                                            <li><span>Телефон:</span><a href="#">8 (800) 300-00-60</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="footer-header fl-wrap"><span>02.</span> Перезвонить Вам</div>
+                                    <div class="footer-box fl-wrap">
+                                        <div class="subcribe-form fl-wrap">
+
+                                            <span>Мы Вам перезвоним</span>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+                {{  allform.name_kl }}<br>{{ allform.tel }}<p class="small">Пример: +79880000000</p>
+        <button type="submit" class="btn float-btn flat-btn">Отправить</button>
+    </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-9">
+                                    <div class="fl-wrap policy-box">
+                                        <p> &#169; ЖК ГРАНД ПАРК в Сочи   2018.  Официальный сайт застройщика.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="to-top"><i class="fa fa-long-arrow-up"></i></div>
+                        </div>
+                    </footer>
+                    <!-- content-footer end    -->
+                </div>
+                <!-- content-holder end -->
+            </div>
+            <!-- wrapper end -->
+            <!--search-form-holder -->
+            <div class="search-form-holder fixed-search">
+                <div class="search-form-bg"></div>
+                <div class="search-form-wrap">
+                    <div class="contact-form" style="background: #fff; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; padding: 60px;max-width: 400px;">
+
+<h3>ОСТАВЬТЕ ЗАЯВКУ<br> И МЫ ВАМ ПЕРЕЗВОНИМ!</h3><br>
+    <form method="POST" class="post-form">{% csrf_token %}
+                {{  allform.name_kl }}<br>{{ allform.tel }}<p class="small" style="
+    text-align: center;
+">Пример: +79880000000</p>
+        <button type="submit" class="btn float-btn flat-btn" style="display: block; margin: 0 auto;float: unset;">Отправить</button>
+    </form>
+
+    </div>
+
+                </div>
+            </div>
+            <!--search-form-holder  end-->
+            <!-- Share container  -->
+            <div class="share-wrapper isShare">
+                <div class="share-container"><ul class="menu">{% if not user.is_authenticated %}
+                            <li><a href="{% url 'login' %}" class="share-icon">Войти</a></li>
+
+                            {% endif %}{% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}" class="share-icon">Выйти</a></li>
+                            <li><a href="{% url 'zayavka:allZayav' %}" class="share-icon">Заявки( {{ tn3 }} )</a></li>
+                            <li><a href="{% url 'zayavka:newZayav' %}" class="share-icon">Подать заявку</a></li>
+                            <li><a href="{% url 'analitics' %}" class="share-icon">Аналитика</a></li>
+                            <li><a href="{% url 'sdelkistat' %}" class="share-icon">Сделки</a></li>    {% endif %}
+                        </ul></div>
+            </div>
+            <!-- Share container  end-->
+            <!-- footer -->
+            <footer class="main-footer">
+                <div class="fixed-title"><span>Сайт застройщика</span></div>
+
+            </footer>
+            <!-- footer end-->
+        </div>
+        <!-- Main end -->
+        <!--=============== scripts  ===============-->
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/plugins.js"></script>
+    <script type="text/javascript" src="/static/js/scripts.js"></script>
+
+    </body>
 </html>

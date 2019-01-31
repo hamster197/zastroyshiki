@@ -1,11 +1,429 @@
 {% extends 'main/main.html' %}
-{% block content %}
 
-    main page</br>
-    ОСТАВЬТЕ ЗАЯВКУ И МЫ ВАМ ПЕРЕЗВОНИМ!
-    <form method="POST" class="post-form">{% csrf_token %}
-            Vashe imya {{  tpForm.name_kl }}(+79880000000){{ tpForm.tel }}
-        <button type="submit" class="save btn btn-default">Отправить</button>
-    </form>
+
+{% block content %}
+           <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder scale-bg2">
+                    <!-- home-slider  -->
+                    <div class="fl-wrap full-height hero-content par-bg" data-scrollax-parent="true" >
+                        <div class="bg"  data-bg="static/images/bg/sl1.jpg" data-scrollax="properties: { translateY: '200px' }" ></div>
+                        <div class="overlay"></div>
+                        <!-- hero-wrap-->
+                        <div class="hero-wrap alt">
+                            <div class="container">
+                                <div class="hero-item">
+                                    <h3 style="color: #fff;">Новый жилой комплекс в Сочи</h3>
+                                    <h2>Гранд Парк</h2>
+                                    <div class="clearfix"></div>
+                                    <h3 style="color: #fff;">ввод в эксплуатацию в 2022 году</h3>
+                                    <div class="clearfix"></div>
+                                    <a href="#sec2" class="btn float-btn flat-btn custom-scroll-link">Подробнее о проекте</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12"><a href="#sec2" class="custom-scroll-link"><i class="fa fa-angle-down" aria-hidden="true" style="color: #fff;font-size: 4em;"></i></a></div>
+                            </div>
+                        </div>
+                        <!-- hero-wrap end-->
+                    </div>
+                    <!-- home-slider end-->
+                    <!--content-->
+                    <div class="content">
+                            <div class="container">
+                                <div class="clients-list fl-wrap">
+                                    <ul>
+                                       <li><a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a></li>
+                                        <li><a href="{% url 'ipoteca' %}">Ипотека от 6%</a></li>
+                                        <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
+                                        <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
+                                        <li><a href="{% url 'remont' %}">Ремонт квартир</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <!--section -->
+                        <section id="sec2" data-scrollax-parent="true" >
+                            <div class="container">
+                                <div class="section-container fl-wrap">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="content-wrap about-wrap" style="background: #fff;padding: 10px 20px;">
+                                                <h3 class="bold-title">Добро пожаловать!  <br>   На сайт ЖК Гранд Парк <br> в Сочи</h3>
+                                                <p>Сочи - единственный город в России с мягким субтропическим климатом. Это столица Зимних Олимпийских игр 2014 года, мекка отдыха у моря летом и центр горнолыжных видов спорта зимой. Сочи - идеальный вариант как для кратковременного, так и для круглогодичного проживания. Выбрать среди вариантов новостроек бывает непросто.
+                                                </p>
+                                                <br><br>
+                                                <h3 class="bold-title">Почему наш комплекс?</h3>
+                                                    <ul style="padding-top: 0;" class="pr-list">
+                                                        <li>Преимущества:</li>
+                                                        <li><span>•</span>Центральный район города Сочи</li>
+                                                        <li><span>•</span>Транспортная доступность</li>
+                                                        <li><span>•</span>Выгодное соотношение цена/качество</li>
+                                                        <li><span>•</span>Неподтопляемая территория</li>
+                                                        <li><br>Удаленность:<br></li>
+                                                        <li>38 минут (36 км) до международного аэропорта Сочи</li>
+                                                        <li>26 минут (6,2 км) до железнодорожного вокзала Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.716447%2C43.614312&mode=routes&rtext=43.630658%2C39.722994~43.591570%2C39.727970&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка маршрута)</a></li>
+                                                        <li>26 минут (7,1 км) до морского порта Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.733749%2C43.607947&mode=routes&rtext=43.629306%2C39.724615~43.580856%2C39.718311&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка на маршрут)</a></li>
+                                                        <li>2 км до моря: пляж “Салют”, пляж “Фазатрон”</li>
+                                                        <li>25 минут (5,3 км) до Моремола</li>
+                                                    </ul>
+
+                                                <span class="bold-separator"></span>
+                                                <div class="clearfix"></div>
+                                                <a href="#sec21" class="custom-scroll-link btn float-btn flat-btn">Подробнее о проекте</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="box-item">
+                                                <img  src="static/images/bg/bg5.jpg"  class="respimg" alt="">
+                                                <div class="overlay"></div>
+                                                <a href="static/images/bg/bg5.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg dec-bg left-pos-dec"  data-bg="static/images/bg/14.jpg"></div>
+                        </section>
+                        <!--section end  -->
+                        <!--section -->
+                        <section  id="sec21" data-scrollax-parent="true">
+<div class="container">
+<div class="custom-inner-holder" style="margin-top: 30px;">
+<div class="custom-inner">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="cus-inner-title fl-wrap">
+                                                    <h3>ЖК Гранд Парк в Сочи</h3>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <br><br>
+                                                <div class="box-item">
+                                                <img src="static/images/bg/bg5.jpg" class="respimg" alt="">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p>Это жилой комплекс, который включает два здания с просторной придомовой территорией, парковкой, оборудованной детской площадкой, полем для минифутбола и баскетбола, зоной отдыха для взрослых.
+                                                В зданиях двенадцать жилых этажей, цокольный этаж предусмотрен для коммерческой деятельности.
+                                                Статус помещений: квартира. Пластика фасадов создается за счет выступающих балконов с металлическим ограждением и декоративными консолями. Панорамные виды на море и горы будут приятным бонусом к Вашей новой резиденции!</p>
+
+                                                <h3>Инвесторам</h3>
+                                                <div class="clearfix"></div>
+                                                <p>Для юридических лиц и индивидуальных предпринимателей</p>
+                                                <ul style="padding-top: 0;list-style-type: disc;" class="pr-list">
+                                                        <li>Высокий уровень ликвидности недвижимости в Сочи.</li>
+                                                        <li>Самые выгодные цены на этапе инвестирования.</li>
+                                                        <li>Завершение этапа инвестирования - сентябрь 2019 года.</li>
+                                                        <li>Полный пакет документов.</li>
+                                                </ul>
+                                                <p><a href="{% url 'doki' %}" class="btn float-btn flat-btn">Документы</a> <a href="/hodstroitelstva" class="btn float-btn flat-btn">Ход строительства</a></p>
+                                                <div class="clearfix"></div>
+                                                <br>
+                                                <br>
+
+                                                <h3>Квартиры</h3>
+                                                <ul style="padding-top: 0;list-style-type: none;" class="pr-list">
+                                                        <li>Cтудии - 26 шт.</li>
+                                                        <li>1-комнатные - 190 шт.</li>
+                                                        <li>2-комнатные - 96 шт.</li>
+                                                </ul>
+                                                <h3>Характеристики жилого комплекса</h3>
+                                                <ul style="padding-top: 0;list-style-type: none;" class="pr-list">
+                                                        <li>Площадь земельного участка 9022 кв.м.</li>
+                                                        <li>Площадь застройки 1580,67 кв.м.</li>
+                                                        <li>Общая площадь зданий 17 46,88 кв.м.</li>
+                                                        <li>Сейсмоустойчивость 8 баллов</li>
+                                                        <li>Коммуникации: газоснабжение, водоснабжение, водоотведение, электроснабжение.</li>
+                                                </ul>
+                                                <h3>Характеристика квартир</h3>
+                                                <ul style="padding-top: 0;list-style-type: none;" class="pr-list">
+                                                        <li>Высота потолков 2,85 м</li>
+                                                        <li>Площадь от 19,5 кв.м</li>
+                                                        <li>Перегородки согласно проекту</li>
+                                                        <li>Подведены: вода, газ, электроснабжение, домофон, спутниковое ТВ</li>
+                                                        <li>Установлено газовое оборудование с двухконтурным котлом</li>
+                                                </ul>
+                                                <h3>Ипотека и ФЗ-214</h3>
+                                                <div class="clearfix"></div>
+                                                <p>Проект ЖК “Гранд парк” аккредитован в банках: ВТБ, Сбербанк.</p>
+                                                <ul style="padding-top: 0;list-style-type: disc;" class="pr-list">
+                                                        <li>Государственный контроль (надзор) в области долевого строительства</li>
+                                                        <li>Продажа по №214-ФЗ</li>
+                                                        <li>Возможность использования материнского капитала, рассрочки</li>
+                                                        <li>Льготная процентная ставка по ипотеке</li>
+                                                        <li>Дополнительной государственной гарантией является отчисление с каждой сделки в фонд защиты прав граждан - участников долевого строительства
+</li>
+                                                </ul>
+                                                <h3>Условия покупки</h3>
+                                                <div class="clearfix"></div>
+                                                <ul style="padding-top: 0;list-style-type: disc;" class="pr-list">
+                                                        <li>Выбрать квартиру и этаж</li>
+                                                        <li>Позвонить по телефону: 8 800 000 00 00</li>
+                                                        <li>Заключить договор долевого участия в строительстве (зарегистрировать в Росреестре)</li>
+                                                        <li>Оплатить стоимость квартиры</li>
+
+                                                </ul>
+
+
+
+<span class="custom-inner-dec"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                        </section>
+                        <!--section end  -->
+                        <!--section -->
+                        <section  >
+                            <div class="bg"  data-bg="static/images/bg/bg2.jpg"></div>
+                            <div class="overlay"></div>
+                            <div class="container">
+                                <div class="intro-text fl-wrap">
+                                    <h2>Доверяйте профессионалам</h2>
+                                    <p><ul style="padding-top: 0;color:#fff;" class="pr-list">
+                                        <li style="font-size: 1.6em;">Специализированный застройщик</li>
+                                        <li style="font-size: 1.6em;">Опыт строительства многоквартирных домов с 2014 года</li>
+                                    </p>
+                                    <a href="{% url 'doki' %}" class="btn float-btn flat-btn">О компании</a>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->
+                        <!--section -->
+                        <section >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="pr-title">
+                                            Сдача жилого комплекса в 2022 году
+                                            <span>Основные преимущества жилого комплекса “Гранд парк” в Сочи</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--parallax-item -->
+                                <div class="row">
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-7">
+                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
+                                            <div class="parallax-header fl-wrap">
+                                                <span>01.</span>
+                                                <ul>
+                                                    <li><a href="#">Квартира</a></li>
+                                                    <li><a href="#">Новостройка </a></li>
+                                                </ul>
+                                            </div>
+                                            <img  src="static/images/bg/bg3.jpg"   alt="">
+                                            <div class="parallax-text left-pos" data-scrollax="properties: { translateY: '-250px' }">
+                                                <h3><a href="{% url 'allFlatsIndex' %}">Цена от 85 000 руб/кв.м.</a></h3>
+                                                <h4>Отсутствие завышенной стоимости - мы застройщики</h4>
+                                                <a href="{% url 'allFlatsIndex' %}" class="btn float-btn flat-btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--parallax-item end-->
+                                <!--parallax-item -->
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
+                                            <div class="parallax-header fl-wrap">
+                                                <span>02.</span>
+                                                <ul>
+                                                    <li><a href="#">Квартира</a></li>
+                                                    <li><a href="#">Новостройка </a></li>
+                                                </ul>
+                                            </div>
+                                            <img  src="static/images/bg/bg4.jpg"   alt="">
+                                            <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
+                                                <h3><a href="{% url 'ipoteca' %}">Ипотека</a></h3>
+                                                <h4>Аккредитация банков: ВТБ, Сбербанк</h4>
+                                                <a href="{% url 'ipoteca' %}" class="btn float-btn flat-btn">Подробнее</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--parallax-item end-->
+                                <!--parallax-item -->
+                                <div class="row">
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-7">
+                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
+                                            <div class="parallax-header fl-wrap">
+                                                <span>03.</span>
+                                                <ul>
+                                                    <li><a href="#">Новостройка</a></li>
+                                                    <li><a href="#">Квартира</a></li>
+                                                </ul>
+                                            </div>
+                                            <img  src="static/images/bg/bg72.jpg"   alt="">
+                                            <div class="parallax-text left-pos" data-scrollax="properties: { translateY: '-250px' }">
+                                                <h3><a href="{% url 'aboutpage' %}">Транспортная доступность</a></h3>
+                                                <h4>Остановка общественного транспорта в шаговой доступности.</h4>
+                                                <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn">Узнать подробнее</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--parallax-item end-->
+                                <!--parallax-item -->
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
+                                            <div class="parallax-header fl-wrap">
+                                                <span>04.</span>
+                                                <ul>
+                                                    <li><a href="#">Квартира</a></li>
+                                                    <li><a href="#">Новостройка в Сочи </a></li>
+                                                </ul>
+                                            </div>
+                                            <img  src="static/images/bg/bg6.jpg"   alt="">
+                                            <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
+                                                <h3><a href="{% url 'allFlatsIndex' %}">Квартиры на любой вкус</a></h3>
+                                                <h4>Двух и однокомнатные квартиры, студии от 19,5 кв.м.</h4>
+                                                <a href="{% url 'allFlatsIndex' %}" class="btn float-btn flat-btn">Узнать сейчас</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--parallax-item end-->
+                            </div>
+                            <div class="partcile-dec" data-parcount="250"></div>
+                        </section>
+                        <!--section end  -->
+                        <!--section -->
+                        <section class="parallax-section header-section  " data-scrollax-parent="true" id="sec6">
+                            <div class="bg"  data-bg="static/images/bg/bg2.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="overlay"></div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="pr-title">
+                                            Дополнительно
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="single-slider testilider fl-wrap" data-effects="slide">
+                                            <div class="swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Балкон</h3>
+                                                            <p>В каждой квартире в двух корпусах жилого комплекса имеется открытый балкон.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Развитая инфраструктура</h3>
+                                                            <p>В шаговой доступности остановка общественного транспорта, детские сады, школы, медицинские и торговые центры.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Коммуникации</h3>
+                                                            <p>ЖК «Гранд Парк» оснащен всеми централизованными коммуникациями, необходимыми для постоянного проживания: электричество, газ, водопровод, канализация.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Экологично и выгодно</h3>
+                                                            <p>Горячая вода и отопление от контурного котла установленного в квартире.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Просторная придомовая территория</h3>
+                                                            <p>Оборудованные детские площадки, футбольная и баскетбольная спортивные площадки, зона отдыха для взрослых.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Забота</h3>
+                                                            <p>Жилые дома запроектированы с учетом требований доступности зданий и сооружений для маломобильных групп населения согласно СП 59.13330.2012 с соблюдением санитарно-гигиенических норм обеспеченности комфортной среды эксплуатации и проживания, норм по обеспечению противопожарной безопасности.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Парковки</h3>
+                                                            <p>81 стандартное парковочное место, 13 парковочных мест для маломобильных групп.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                     <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Лифты</h3>
+                                                            <p>Два лифта в каждом доме: Otis на 6 человек (до 450 кг) и Otis на 13 человек (до 1000 кг). </p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Продуманная планировка</h3>
+                                                            <p>В составе квартир предусмотрены помещения: кухня, прихожая и совмещенный санузел.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Технология строительства</h3>
+                                                            <p>Железобетонный каркас с блочным заполнением монолит, с утепленным фасадом.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                    <!-- swiper-slide -->
+                                                    <div class="swiper-slide">
+                                                        <div class="testi-item fl-wrap">
+                                                            <h3>Безопасность</h3>
+                                                            <p>В жилом комплексе имеется: видеонаблюдение, закрытая территория, консьерж.</p>
+                                                            <a href="{% url 'aboutpage' %}" class="btn float-btn flat-btn" target="_blank">Подробнее</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- swiper-slide end-->
+                                                </div>
+                                                <div class="swiper-pagination"></div>
+                                                <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                                <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--section end  -->
+
+                        <!--section -->
+                        <section>
+
+                        </section>
+                        <!--section end  -->
+
+                    </div>
+                    <!-- content  end -->
 
 {% endblock %}

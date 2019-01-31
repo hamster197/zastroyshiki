@@ -1,173 +1,409 @@
 {% extends 'main/main.html' %}
 {% block content %}
-    Analitica</br>
-    Всего {{ tAllKv }} кв/На брони {{ tall_bron_kv }} кв/Продано {{ tall_prodano_kv }} кв</br>
-<html>
-  <head>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
 
-<head>
-    <!-- Step 1 - Including the fusioncharts core library -->
-    <script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
-    <!-- Step 2 - Including the fusion theme -->
-    <script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.theme.fusion.js"></script>
-</head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>
+.uk-button-primary {
+    background-color: #3fa99e;
+}
 
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+.uk-subnav-pill>.uk-active>a {
+    background-color: #3fa99e;
+}
+.uk-background-primary {
+    background-color: #3fa99e;
+}
+.uk-card-primary {
+    background: #3fa99e;}
+.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
 
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
+                        <!--  section  -->
+                        <section style="padding: 10px 0;">
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-6">
+    <h2 class="bold-title uk-heading-divider">Аналитика</h2>
+<div class="uk-card uk-card-body uk-card-default uk-width-1-1" uk-height-viewport="expand: true" style="display: inline-block;">
+ <!--3 график-->
+ <script src="static/dop/js/highcharts.js"></script>
 
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
+<script src="static/dop/js/export-data.js"></script>
+ <div id="container1" style="height: 325px; max-width: 600px; margin: 0 auto"></div>
+ 		<script type="text/javascript">
 
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Продано', {{ one_korp_prod_kvart }}],
-          ['Свободно', {{ one_korp_sv_kvart }}],
-          ['Бронь', {{ one_korp_bron_kvart }}],
-        ]);
+// Build the chart
+Highcharts.chart('container1', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '<b>1 Корпус</b>'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y} шт.</b>'
+    },
+    plotOptions: {
+        pie: {
+allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.y} ',
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: '1 корпус',
+        colorByPoint: true,
+        data: [{
+            name: 'Свободно',
+            y: {{ one_korp_sv_kvart }},
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Продано',
+            y: {{ one_korp_prod_kvart }}
+        }, {
+            name: 'Бронь',
+            y: {{ one_korp_bron_kvart }}
+        }]
+    }]
+});
+		</script>
+  <!--3 график-->
+  <!--4 график-->
+   <div id="container2" style="height: 325px; max-width: 600px; margin: 0 auto"></div>
+ 		<script type="text/javascript">
 
-        // Set chart options
-        var options = {'title':'1 Корпус',
-                       'width':400,
-                       'height':300};
+// Build the chart
+Highcharts.chart('container2', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '<b>2 Корпус</b>'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y} шт.</b>'
+    },
+    plotOptions: {
+        pie: {
+allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.y} ',
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: '1 корпус',
+        colorByPoint: true,
+        data: [{
+            name: 'Свободно',
+            y: {{ two_korp_sv_kvart }},
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Продано',
+            y: {{ two_korp_prod_kvart }}
+        }, {
+            name: 'Бронь',
+            y: {{ two_korp_bron_kvart }}
+        }]
+    }]
+});
+		</script>
 
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
+    <!--4 график-->
+   </div>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+</div>
 
-  </body>
-</html>
+                <div class="col-md-6">
+<div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-background-muted uk-padding"><b>Всего </b> {{ tAllKv }} квартир</div>
+    </div>
+    <div>
+        <div class="uk-background-primary uk-padding uk-light"><b>На брони </b> {{ tall_bron_kv }} квартир</div>
+    </div>
+    <div>
+        <div class="uk-background-secondary uk-padding uk-light"><b>Продано </b> {{ tall_prodano_kv }} квартир</div>
+    </div>
+</div>
+<hr>
+<div class="uk-card uk-card-default uk-card-body">
+<table class="uk-table uk-table-striped uk-table-middle">
+    <caption>Продано 1 корпус в разрезе квартир</caption>
+    <thead>
+        <tr>
+            <th>Квартиры</th> <th>Всего</th> <th>Продано</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Студия</td> <td>{{ one_korp_prod_st_all }}</td> <td>{{ one_korp_prod_st }}</td>
+        </tr>
+        <tr>
+            <td>Однокомнатная</td> <td>{{ one_korp_prod_OneKm_all }}</td> <td>{{ one_korp_prod_OneKm }}</td>
+        </tr>
+        <tr>
+            <td>Двухкомнатная</td> <td>{{ one_korp_prod_TwoKm_all }}</td> <td>{{ one_korp_prod_TwoKm }}</td>
+        </tr>
+        <tr>
+            <td>Трехкомнатная</td> <td>{{ one_korp_prod_ThreKm_all }}</td> <td>{{ two_korp_prod_ThreKm }}</td>
+        </tr>
+    </tbody>
+</table>
 
-<html>
-  <head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<table class="uk-table uk-table-striped uk-table-middle">
+    <caption>Продано 2 корпус в разрезе квартир</caption>
+    <thead>
+        <tr>
+            <th>Квартиры</th> <th>Всего</th> <th>Продано</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Студия</td> <td>{{ two_korp_prod_st_all }}</td> <td>{{ two_korp_prod_st }}</td>
+        </tr>
+        <tr>
+            <td>Однокомнатная</td> <td>{{ two_korp_prod_OneKm_all }}</td> <td>{{ two_korp_prod_OneKm }}</td>
+        </tr>
+        <tr>
+            <td>Двухкомнатная</td> <td>{{ two_korp_prod_TwoKm_all }}</td> <td>{{ two_korp_prod_TwoKm }}</td>
+        </tr>
+        <tr>
+            <td>Трехкомнатная</td> <td>{{ two_korp_prod_ThreKm_all }}</td> <td>{{ two_korp_prod_ThreKm }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
 
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Продано', {{ one_korp_prod_kvart }}],
-          ['Свободно', {{ one_korp_sv_kvart }}],
-          ['Бронь', {{ one_korp_bron_kvart }}],
-        ]);
-
-        // Set chart options
-        var options = {'title':'1 Корпус',
-                       'width':400,
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-
-  </body>
-</html>
-
-
-
-
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Продано',     {{ two_korp_prod_kvart }}],
-          ['Свободно',      {{ two_korp_sv_kvart }}],
-          ['Бронь',  {{ two_korp_bron_kvart }}],
-        ]);
-
-        var options = {
-          title: '2 Корпус',
-          pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <div id="donutchart" style="width: 400px; height: 300px;"></div>
-
-
-  </body>
-</html>
-
-</br>Проданно 1 корпус в разрезе квартир
-    <li>Студий Всего {{ one_korp_prod_st_all }}; Продано {{ one_korp_prod_st }}</li>
-    <li>Однокомнатная Всего {{ one_korp_prod_OneKm_all }};Продано {{ one_korp_prod_OneKm }} </li>
-    <li>Двухкомнатная Всего {{ one_korp_prod_TwoKm_all }};Продано {{ one_korp_prod_TwoKm }}</li>
-    <li>Трехкомнатная Всего {{ one_korp_prod_ThreKm_all }};Продано {{ one_korp_prod_ThreKm }}</li>
-</br>Проданно 2 корпус в разрезе квартир
-    <li>Студий Всего {{ two_korp_prod_st_all }}; Продано {{ two_korp_prod_st }}</li>
-    <li>Однокомнатная Всего {{ two_korp_prod_OneKm_all }};Продано {{ two_korp_prod_OneKm }} </li>
-    <li>Двухкомнатная Всего {{ two_korp_prod_TwoKm_all }};Продано {{ two_korp_prod_TwoKm }}</li>
-    <li>Трехкомнатная Всего {{ two_korp_prod_ThreKm_all }};Продано {{ two_korp_prod_ThreKm }}</li>
-
-</br>Каналы продаж(по агенствам)
+</div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+     <div class="uk-card uk-card-default uk-card-body" style="margin: 20px 0;">
+     <h4>Каналы продаж<br>(по агенствам)</h4>
+     <ul class="uk-list uk-list-striped">
     {% for ag in tag %}
-        <li>{{ ag.ag_name }}: {{ ag.kol_sdel }} сделок </li>
-    {% endfor %}
+        <li style="text-align: left;"><b>{{ ag.ag_name }}:</b> {{ ag.kol_sdel }} сделок</li>
+    {% endfor %}</ul>
+    </div>
+    </div>
+    <div class="col-md-8">
+    <div class="uk-card uk-card-default uk-card-body" style="margin: 20px 0;">
+     <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+     		<script type="text/javascript">
 
-</br>Каналы продаж
-    <li> Разное {{ sdelka_razn_kn }}</li>
-    <li>Авито {{ sdelka_av_kn }}</li>
-    <li>Домклик(Сбербанк) {{ sdelka_dm_kn }}</li>
-    <li>Яндекс {{ sdelka_ya_kn }}</li>
-    <li>Циан {{ sdelka_cian_kn }}</li>
-    <li>Тел.звонок {{ sdelka_tel_kn  }}</li>
-    <li>Аг.недвижимости {{ sdelka_ag_kn }}</li>
-    <li>Сайт компании{{ sdelka_sait_kn }}</li>
+Highcharts.chart('container3', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Каналы продаж'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: [
+            'Каналы'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Число продаж'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y} шт.</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Разное',
+        data: [{{ sdelka_razn_kn }}]
 
-</br>Каналы поступления заявок
-    <li> Разное {{ zayav_kn_raz }}</li>
-    <li>Авито {{ zayav_kn_av }}</li>
-    <li>Домклик(Сбербанк) {{ zayav_kn_dm }}</li>
-    <li>Яндекс {{ zayav_kn_ya }}</li>
-    <li>Циан {{ zayav_kn_cian }}</li>
-    <li>Тел.звонок {{ zayav_kn_tel  }}</li>
-    <li>Сайт компании {{ zayav_kn_sait }}</li>
+    }, {
+        name: 'Авито',
+        data: [{{ sdelka_av_kn }}]
+
+    }, {
+        name: 'Домклик(Сбербанк)',
+        data: [{{ sdelka_dm_kn }}]
+
+    }, {
+        name: 'Яндекс',
+        data: [{{ sdelka_ya_kn }}]
+
+    },{
+        name: 'Циан',
+        data: [{{ sdelka_cian_kn }}]
+
+    },{
+        name: 'Тел.звонок',
+        data: [{{ sdelka_tel_kn  }}]
+
+    },{
+        name: 'Аг.недвижимости',
+        data: [{{ sdelka_ag_kn }}]
+
+    },
+    {
+        name: 'Сайт компании',
+        data: [{{ sdelka_sait_kn }}]
+
+    }]
+});
+		</script>
+    </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+     <div class="uk-card uk-card-default uk-card-body" style="margin: 20px 0;">
+         <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+     		<script type="text/javascript">
+
+Highcharts.chart('container4', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Каналы поступления заявок'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: [
+            'Каналы'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Число заявок'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y} шт.</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Разное',
+        data: [{{ zayav_kn_raz }}]
+
+    }, {
+        name: 'Авито',
+        data: [{{ zayav_kn_av }}]
+
+    }, {
+        name: 'Домклик(Сбербанк)',
+        data: [{{ zayav_kn_dm }}]
+
+    }, {
+        name: 'Яндекс',
+        data: [{{ zayav_kn_ya }}]
+
+    },{
+        name: 'Циан',
+        data: [{{ zayav_kn_cian }}]
+
+    },{
+        name: 'Тел.звонок',
+        data: [{{ zayav_kn_tel  }}]
+
+    },
+    {
+        name: 'Сайт компании',
+        data: [{{ zayav_kn_sait }}]
+
+    }]
+});
+		</script>
+    </div>
+    </div>
+</div>
+
+ </div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
+
+
 
 {% endblock %}

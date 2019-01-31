@@ -1,67 +1,194 @@
 {% extends 'main/main.html' %}
 {% block content %}
-all zayavki
-<li> new zayav count {{ tnzayav_count }}</li>
-<li> in work zayav count {{ twzayav_count }}</li>
-<li> sdelka zayav count {{ tszayav_count }}</li>
-<li> sriv zayav count {{ tozayav_count }}</li>
-----------------------------------------------</br>
-new zayav {{ tnzayav_count }}
-{% for nzayav in tnzayav %}
-    <li>date sozd {{ nzayav.date_sozd }}</li>
-    <li>kanal privl klienta {{ nzayav.kanal_pr }}</li>
-    <li>name klienta {{ nzayav.name_kl }}</li>
-    <li>tel klienta {{ nzayav.tel }}</li>
-    <li>budgetl klienta {{ nzayav.budget }}</li>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>
+.uk-button-primary {
+    background-color: #3fa99e;
+}
+
+.uk-subnav-pill>.uk-active>a {
+    background-color: #3fa99e;
+}
+.uk-background-primary {
+    background-color: #3fa99e;
+}
+.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}
+.uk-list {
+    text-align: left;
+}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+
+                        <!--  section  -->
+                        <section style="padding: 10px 0;">
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-4">
+    <h2 class="bold-title uk-heading-divider">Все заявки</h2>
+</div>
+<div class="col-md-8">
+<div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-background-muted uk-padding"><b>Новые </b> {{ tnzayav_count }}</div>
+    </div>
+    <div>
+        <div class="uk-background-primary uk-padding uk-light"><b>В работе </b> {{ twzayav_count }}</div>
+    </div>
+    <div>
+        <div class="uk-background-secondary uk-padding uk-light"><b>Сделка </b> {{ tszayav_count }}</div>
+    </div>
+    <div>
+        <div class="uk-background-muted uk-padding" style="color:red;"><b>Срыв </b> {{ tozayav_count }}</div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="col-md-12">
+<div class="uk-card uk-card-default uk-card-body uk-text-middle" style="margin:20px 0;">
+<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+    <li><a href="#">Новые</a></li>
+    <li><a href="#">В работе</a></li>
+    <li><a href="#">Сделка</a></li>
+    <li><a href="#">Отказ</a></li>
+</ul>
+<ul class="uk-switcher uk-margin">
+<li>
+{% for nzayav in tnzayav %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;"><ul class="uk-list">
+    <li><b>Дата</b> {{ nzayav.date_sozd }}</li>
+    <li><b>Канал привлечения</b> {{ nzayav.kanal_pr }}</li>
+    <li><b>ФИО клиента</b> {{ nzayav.name_kl }}</li>
+    <li><b>Тел.клиента</b> {{ nzayav.tel }}</li>
+    <li><b>Бюджет клиента</b> {{ nzayav.budget }}</li>
     {% if nzayav.comment %}
-        <li>comment {{ nzayav.comment }}</li>
+        <li><b>Комментарий</b> {{ nzayav.comment }}</li>
     {% endif %}
     <li><a href="{% url 'zayavka:flatsInWork' idd=nzayav.pk %}">В работе</a></li>
     <li><a href="{% url 'zayavka:flatsSdelka' idd=nzayav.pk %}">Сделка</a></li>
-    <li><a href="{% url 'zayavka:flatsOtkaz' idd=nzayav.pk %}">Отказ</a></li>
-    ---------------------
-{% endfor %}
- zayavki in work {{ twzayav_count }}
-{% for wzayav in twzayav %}
-    <li>date sozd {{ wzayav.date_sozd }}</li>
-    <li>date vzyatiya v rabotu {{ wzayav.date_vz }}</li>
-    <li>kanal privl klienta {{ wzayav.kanal_pr }}</li>
-    <li>name klienta {{ wzayav.name_kl }}</li>
-    <li>tel klienta {{ wzayav.tel }}</li>
-    <li>budgetl klienta {{ wzayav.budget }}</li>
+    <li><a href="{% url 'zayavka:flatsOtkaz' idd=nzayav.pk %}">Отказ</a></li></ul></div></div>
+{% endfor %}</li>
+
+<li>
+{% for wzayav in twzayav %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;"><ul class="uk-list">
+    <li><b>Дата создания</b> {{ wzayav.date_sozd }}</li>
+    <li><b>Дата взятия в работу</b> {{ wzayav.date_vz }}</li>
+    <li><b>Канал привлечения</b> {{ wzayav.kanal_pr }}</li>
+    <li><b>ФИО клиента</b> {{ wzayav.name_kl }}</li>
+    <li><b>Тел.клиента</b> {{ wzayav.tel }}</li>
+    <li><b>Бюджет</b> {{ wzayav.budget }}</li>
     {% if wzayav.comment %}
-        <li>comment {{ wzayav.comment }}</li>
+        <li><b>Комментарий</b> {{ wzayav.comment }}</li>
     {% endif %}
     <li><a href="{% url 'zayavka:flatsSdelka' idd=wzayav.pk %}">Сделка</a></li>
-    <li><a href="{% url 'zayavka:flatsOtkaz' idd=wzayav.pk %}">Отказ</a></li>
-    ---------------------
-{% endfor %}
- zayavki sdelka {{ tszayav_count }}
-{% for szayav in tszayav %}
-    <li>date sozd {{ szayav.date_sozd }}</li>
-    <li>date vzyata v rabotu {{ szayav.date_vz }}</li>
-    <li>date zakritiya zayavki {{ szayav.date_zakr }}</li>
-    <li>kanal privl klienta {{ szayav.kanal_pr }}</li>
-    <li>name klienta {{ szayav.name_kl }}</li>
-    <li>tel klienta {{ szayav.tel }}</li>
-    <li>budgetl klienta {{ szayav.budget }}</li>
+    <li><a href="{% url 'zayavka:flatsOtkaz' idd=wzayav.pk %}">Отказ</a></li></ul></div></div>
+{% endfor %}</li>
+
+
+<li>
+{% for szayav in tszayav %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;"><ul class="uk-list">
+    <li><b>Дата</b> {{ szayav.date_sozd }}</li>
+    <li><b>Дата взятия в работу</b> {{ szayav.date_vz }}</li>
+    <li><b>Дата закрытия</b> {{ szayav.date_zakr }}</li>
+    <li><b>Канал привлечения</b> {{ szayav.kanal_pr }}</li>
+    <li><b>ФИО клиента</b> {{ szayav.name_kl }}</li>
+    <li><b>Тел.клиента</b> {{ szayav.tel }}</li>
+    <li><b>Бюджет клиента</b> {{ szayav.budget }}</li>
     {% if szayav.comment %}
-        <li>comment {{ szayav.comment }}</li>
-    {% endif %}
-    ---------------------
-{% endfor %}
- zayavki otkaz {{ tozayav_count }}
-{% for ozayav in tozayav %}
-    <li>date sozd {{ ozayav.date_sozd }}</li>
-    <li>date vzyata d hf,jne {{ ozayav.vz }}</li>
-    <li>date zakr zayavki {{ ozayav.zakr }}</li>
-    <li>kanal privl klienta {{ ozayav.kanal_pr }}</li>
-    <li>name klienta {{ ozayav.name_kl }}</li>
-    <li>tel klienta {{ ozayav.tel }}</li>
-    <li>budgetl klienta {{ ozayav.budget }}</li>
+        <li><b>Комментарий</b> {{ szayav.comment }}</li>
+    {% endif %}</ul></div></div>
+{% endfor %}</li>
+
+<li>
+{% for ozayav in tozayav %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;"><ul class="uk-list">
+    <li><b>Дата</b> {{ ozayav.date_sozd }}</li>
+    <li><b>Дата взятия в работу</b> {{ ozayav.vz }}</li>
+    <li><b>Дата закрытия</b> {{ ozayav.zakr }}</li>
+    <li><b>Канал привлечения</b> {{ ozayav.kanal_pr }}</li>
+    <li><b>ФИО клиента</b> {{ ozayav.name_kl }}</li>
+    <li><b>Тел.клиента</b> {{ ozayav.tel }}</li>
+    <li><b>Бюджет клиента</b> {{ ozayav.budget }}</li>
     {% if ozayav.comment %}
-        <li>comment {{ ozayav.comment }}</li>
-    {% endif %}
-    ---------------------
-{% endfor %}
+        <li><b>Комментарий</b> {{ ozayav.comment }}</li>
+    {% endif %}</ul></div></div>
+{% endfor %}</li>
+</ul>
+
+
+</div>
+</div>
+
+
+ </div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
 {% endblock %}

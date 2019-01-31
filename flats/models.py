@@ -68,6 +68,7 @@ class flat(models.Model):
     class Meta:
         verbose_name = 'Квартира'
         verbose_name_plural = 'Квартиры'
+        #ordering = 'id',
 
 
 

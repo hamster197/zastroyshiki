@@ -36,12 +36,12 @@ def mainPageView(request):
         form = zayavkaFromSaitForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.date_sozd = datetime.datetime.now()
+            post.date_sozd = datetime.now()
             post.kanal_pr = 'Заявка с сайта'
             post.status = 'Новая заявка'
             ss = 'От ' + post.name_kl +' тел.'+str(post.tel)
             send_mail('Поступила новая заявка на сайт', ss , 'zhem-otchet@mail.ru',
-                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+                      ['sawf@rambler.ru'], fail_silently=False, html_message=ss)
             post.save()
     else:
         form = zayavkaFromSaitForm()
@@ -61,7 +61,7 @@ def ContactsPageView(request):
         form = zayavkaFromSaitForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.date_sozd = datetime.datetime.now()
+            post.date_sozd = datetime.now()
             post.kanal_pr = 'Заявка с сайта'
             post.status = 'Новая заявка'
             post.save()
@@ -90,14 +90,14 @@ def PoliticaConfPageView(request):
 @login_required
 def SdekaAnView(request):
     if request.POST:
-        a = 'bbbbb'
+        a = ''
         form = SdelkiDateForm(request.POST)
         if form.is_valid():
-            a= 'asdasdsa'
+            a= ''
             ds = form.cleaned_data['date_st']
             de = form.cleaned_data['date_end']
     else:
-        a = '1111'
+        a = ''
         form = SdelkiDateForm(
             initial={'date_st': datetime.now().date() - timedelta(days=datetime.now().day) + timedelta(days=1),
                      'date_end': datetime.now()})
@@ -122,9 +122,9 @@ def AnaliticaView(request):
     two_korp_bron_kvart = flat.objects.filter(status='Бронь', korpus='2 корпус').count()
     two_korp_sv_kvart = flat.objects.filter(status='Свободна', korpus='2 корпус').count()
 
-    one_korp_prod_st_all = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=2)| Q(planirovka_id=14),
+    one_korp_prod_st_all = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=3)| Q(planirovka_id=14),
                                                korpus='1 корпус').count()
-    one_korp_prod_st = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=2)| Q(planirovka_id=14),
+    one_korp_prod_st = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=3)| Q(planirovka_id=14),
                                            status='Продана', korpus='1 корпус').count()
     one_korp_prod_OneKm_all = flat.objects.filter(Q(planirovka_id=2) | Q(planirovka_id=4)| Q(planirovka_id=5)  |
                                                   Q(planirovka_id=6) | Q(planirovka_id=7) | Q(planirovka_id=11) |
@@ -144,31 +144,32 @@ def AnaliticaView(request):
                                               Q(planirovka_id=23), status='Продана', korpus='1 корпус').count()
     one_korp_prod_ThreKm_all = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)|Q(planirovka_id=10)|
                                                   Q(planirovka_id=19), korpus='1 корпус').count()
-    one_korp_prod_ThreKm = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)| Q(planirovka_id=19)|
+    one_korp_prod_ThreKm = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)| Q(planirovka_id=10)|
                                               Q(planirovka_id=19), status='Продана', korpus='1 корпус').count()
-    two_korp_prod_st_all = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=2)| Q(planirovka_id=14),
-                                               korpus='1 корпус').count()
-    two_korp_prod_st = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=2)| Q(planirovka_id=14),
-                                           status='Продана', korpus='1 корпус').count()
+
+    two_korp_prod_st_all = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=3)| Q(planirovka_id=14),
+                                               korpus='2 корпус').count()
+    two_korp_prod_st = flat.objects.filter(Q (planirovka_id=1) | Q(planirovka_id=3)| Q(planirovka_id=14),
+                                           status='Продана', korpus='2 корпус').count()
     two_korp_prod_OneKm_all = flat.objects.filter(Q(planirovka_id=2) | Q(planirovka_id=4)| Q(planirovka_id=5)  |
                                                   Q(planirovka_id=6) | Q(planirovka_id=7) | Q(planirovka_id=11) |
                                                   Q(planirovka_id=13) | Q(planirovka_id=15) | Q(planirovka_id=16) |
                                                   Q(planirovka_id=17) | Q(planirovka_id=21) | Q(planirovka_id=22) |
                                                   Q(planirovka_id=24) | Q(planirovka_id=25) | Q(planirovka_id=26),
-                                               korpus='1 корпус').count()
+                                               korpus='2 корпус').count()
     two_korp_prod_OneKm = flat.objects.filter(Q(planirovka_id=2) | Q(planirovka_id=4)| Q(planirovka_id=5)  |
                                                   Q(planirovka_id=6) | Q(planirovka_id=7) | Q(planirovka_id=11) |
                                                   Q(planirovka_id=13) | Q(planirovka_id=15) | Q(planirovka_id=16) |
                                                   Q(planirovka_id=17) | Q(planirovka_id=21) | Q(planirovka_id=22) |
                                                   Q(planirovka_id=24) | Q(planirovka_id=25) | Q(planirovka_id=26),
-                                           status='Продана', korpus='1 корпус').count()
+                                           status='Продана', korpus='2 корпус').count()
     two_korp_prod_TwoKm_all = flat.objects.filter(Q (planirovka_id=12) | Q(planirovka_id=18)|Q(planirovka_id=20)|
-                                                  Q(planirovka_id=23), korpus='1 корпус').count()
+                                                  Q(planirovka_id=23), korpus='2 корпус').count()
     two_korp_prod_TwoKm = flat.objects.filter(Q (planirovka_id=12) | Q(planirovka_id=18)| Q(planirovka_id=20)|
-                                              Q(planirovka_id=23), status='Продана', korpus='1 корпус').count()
+                                              Q(planirovka_id=23), status='Продана', korpus='2 корпус').count()
     two_korp_prod_ThreKm_all = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)|Q(planirovka_id=10)|
-                                                  Q(planirovka_id=19), korpus='1 корпус').count()
-    two_korp_prod_ThreKm = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)| Q(planirovka_id=19)|
+                                                  Q(planirovka_id=19), korpus='2 корпус').count()
+    two_korp_prod_ThreKm = flat.objects.filter(Q (planirovka_id=8) | Q(planirovka_id=9)| Q(planirovka_id=10)|
                                               Q(planirovka_id=19), status='Продана', korpus='1 корпус').count()
     sdelka_razn_kn = flat.objects.filter(status='Продана', kanal_pr='Разное').count()
     sdelka_av_kn = flat.objects.filter(status='Продана', kanal_pr='Авито').count()
@@ -202,7 +203,7 @@ def AnaliticaView(request):
                                                   'one_korp_prod_OneKm_all':one_korp_prod_OneKm_all,'one_korp_prod_OneKm':one_korp_prod_OneKm,
                                                   'one_korp_prod_TwoKm_all':one_korp_prod_TwoKm_all,'one_korp_prod_TwoKm':one_korp_prod_TwoKm,
                                                   'one_korp_prod_ThreKm_all':one_korp_prod_ThreKm_all, 'one_korp_prod_ThreKm':one_korp_prod_ThreKm,
-                                                  'two_korp_prod_st_all': two_korp_prod_st_all,'one_korp_prod_st': two_korp_prod_st,
+                                                  'two_korp_prod_st_all': two_korp_prod_st_all,'two_korp_prod_st': two_korp_prod_st,
                                                   'two_korp_prod_OneKm_all': two_korp_prod_OneKm_all,'two_korp_prod_OneKm': two_korp_prod_OneKm,
                                                   'two_korp_prod_TwoKm_all': two_korp_prod_TwoKm_all, 'two_korp_prod_TwoKm': two_korp_prod_TwoKm,
                                                   'two_korp_prod_ThreKm_all': two_korp_prod_ThreKm_all, 'two_korp_prod_ThreKm': two_korp_prod_ThreKm,

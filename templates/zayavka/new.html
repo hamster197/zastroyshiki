@@ -1,11 +1,142 @@
 {% extends 'main/main.html' %}
 {% block content %}
-New zayavka
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>
+.uk-button-primary {
+    background-color: #3fa99e;
+}
 
-    <form method="POST" class="post-form">{% csrf_token %}
-           kanal privl {{  tform.kanal_pr}} imya kl  {{ tform.name_kl }} tel kl {{ tform.tel }} budget {{ tform.budget }} {{ tform.text }}
-        <button type="submit" class="save btn btn-default">Сохранить</button>
-        <input value="Отмена" type="button" onclick="location.href='/apparts'" />
+.uk-subnav-pill>.uk-active>a {
+    background-color: #3fa99e;
+}
+.uk-background-primary {
+    background-color: #3fa99e;
+}
+.uk-card-primary {
+    background: #3fa99e;}
+.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}
+ul#id_agenstvo {
+    display: inline-block;
+    float: left;
+}
+ul#id_agenstvo li {display: inline-block;
+    float: left;
+    margin: 10px;}
+
+ul#id_agenstvo li  label{display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;}
+input[type="checkbox" i] {background-color: #fff;
+    margin-right: 3px;
+    width: 16px;}
+ select#id_kanal_pr {
+    max-width: 100%;
+    height: 55px;
+    width: 100%;
+    border: 0 none;
+    padding: 0 10px;
+    background: #fff;
+    color: #666;
+    border: 1px solid #e5e5e5;
+    transition: .2s ease-in-out;
+    transition-property: color,background-color,border;
+}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+
+                        <!--  section  -->
+                        <section >
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-8">
+    <h2 class="uk-text-left">Новая заявка</h2>
+<div class="uk-card uk-card-default uk-card-body">
+    <form method="POST" class="post-form uk-grid-small" uk-grid>{% csrf_token %}
+    <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+<div class="uk-card uk-card-primary uk-card-small uk-card-body">
+           Канал привлечения {{  tform.kanal_pr}}
+           ФИО клиента  {{ tform.name_kl }}
+           Тел. клиента {{ tform.tel }}
+           Бюджет {{ tform.budget }}</div>
+<div class="uk-card uk-card-default uk-card-small uk-card-body">
+           Комментарий {{ tform.text }}
+        <button type="submit" class="save uk-button uk-button-primary">Сохранить</button>
+        <input value="Отмена" type="button" class="uk-button uk-button-default" onclick="location.href='/apparts'" /></div></div>
     </form>
+</div>
 
+ </div>
+                                    <div class="col-md-4"><div class="box-item">
+                                                <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
+
+                                            </div>
+                                    </div>
+                     </div></div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
 {% endblock %}

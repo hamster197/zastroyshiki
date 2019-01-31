@@ -1,36 +1,137 @@
 {% extends 'main/main.html' %}
 {% block content %}
-    statistika po sdelkam
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}
+.uk-list {
+    text-align: left;
+}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+                        <!--  section  -->
+                        <section>
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+  <h2 class="uk-heading-divider">Статистика по сделкам</h2>
+   <div class="col-md-8">
+   <div class="uk-card uk-card-default uk-card-body uk-text-middle">
     <form method="POST" class="post-form">{% csrf_token %}
-         start date {{  tform.date_st }} end date {{ tform.date_end }}
-        <button type="submit" class="save btn btn-default">search</button>
+         {{  tform.date_st }} {{ tform.date_end }}
+        <button type="submit" class="uk-button uk-button-secondary uk-button-large">Поиск</button>
     </form>
-    Sdelki     {{ a }}
-    {% for sdelki in tsdelki %}
-        <li>date {{ sdelki.sdelka_date }}; korpus {{ sdelki.korpus }}; etag {{ sdelki.etag }};
-            kv numb {{ sdelki.kv_numb }}; agents: {{  sdelki.agenstvo.all|join:", " }} </li>
-        <li>kv ploshad {{ sdelki.planirovka.ploshad  }}({{ sdelki.planirovka.komnat }});
-            kv cena za metr {{ sdelki.cena_za_metr }}rub;
-            kv all cena {% widthratio sdelki.planirovka.ploshad 1  sdelki.cena_za_metr %} rub </li>
-        <li>fio pokup {{ sdelki.fio_pokupatel }}; tel pokup {{ sdelki.tel_pokupatel }}; prim {{ sdelki.prim }} </li>
-        ------------------------------------------------------------------------------------------------------------------
+    </div>
+    </div>
+<div class="col-md-12">
+<div class="uk-card uk-card-default uk-card-body uk-text-middle" style="margin:20px 0;">
+<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+    <li><a href="#">Сделки</a></li>
+    <li><a href="#">Бронирование</a></li>
+</ul>
+<ul class="uk-switcher uk-margin">
+    <li>
+
+    {% for sdelki in tsdelki %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;"><ul class="uk-list">
+        <li><b>Дата</b> {{ sdelki.sdelka_date }}</li>
+        <li><b>Корпус</b> {{ sdelki.korpus }}</li>
+        <li><b>Этаж</b> {{ sdelki.etag }}</li>
+        <li><b>Номер квартиры</b> {{ sdelki.kv_numb }}</li>
+        <li><b>Источник:</b> {{  sdelki.agenstvo.all|join:", " }}</li>
+        <li><b>Площадь</b> {{ sdelki.planirovka.ploshad  }} ({{ sdelki.planirovka.komnat }})</li>
+        <li><b>Цена за кв.м.</b> {{ sdelki.cena_za_metr }} Р.</li>
+        <li><b>Стоимость полностью</b> {% widthratio sdelki.planirovka.ploshad 1  sdelki.cena_za_metr %} Р. </li>
+        <li><b>ФИО покупателя</b> {{ sdelki.fio_pokupatel }}</li>
+        <li><b>Телефон</b> {{ sdelki.tel_pokupatel }}</li>
+        <li><b>Примечание</b> {{ sdelki.prim }} </li></ul></div></div>
     {% endfor %}
-    </br>Bron
-    {% for bron in tbron %}
+
+    <li>
+    {% for bron in tbron %}<div class="col-md-4">
+         <div class="uk-card uk-card-default uk-card-body" style="padding:20px; margin:10px;">
         {% if bron.bron_date_end|timesince >= "1440 min" %}
-            <li><strong>Prosrochka vneseniya broni!</strong> </li>
-        {% endif %}
-        <li>korpus {{ bron.korpus }}; etag {{ bron.etag }}; kv numb {{ bron.kv_numb }};
-            agents {{  bron.agenstvo.all|join:", " }}</li>
+        <p><b style="color:red;">Просрочка внесения брони</b></p>
+        {% endif %}<ul class="uk-list">
+        <li><b>Корпус</b> {{ bron.korpus }}</li>
+        <li><b>Этаж</b> {{ bron.etag }}</li>
+        <li><b>Номер квартиры</b> {{ bron.kv_numb }}</li>
+        <li><b>Источник:</b> {{  bron.agenstvo.all|join:", " }}</li>
+        <li><b>Площадь</b> {{ bron.planirovka.ploshad  }} ({{ bron.planirovka.komnat }})</li>
+        <li><b>Цена за кв.м.</b> {{ born.cena_za_metr }} Р.</li>
+        <li><b>Стоимость полностью</b> {% widthratio bron.planirovka.ploshad 1  bron.cena_za_metr %} Р. </li>
+        <li><b>ФИО покупателя</b> {{ bron.fio_pokupatel }}; </li>
+        <li><b>Телефон покупателя</b> {{ bron.tel_pokupatel }};</li>
+        <li><b>Примечание</b> {{ bron.prim }} </li>
+        <li><b>Старт брони</b> {{ bron.bron_date_start }};</li>
+        <li><b>Окончание брони</b> {{ bron.bron_date_end  }}</li>
+        <li><b>Внесено по брони</b> {{ bron.bron_vneseno }} Р. </li>
+        </ul></div></div>
+    {% endfor %}</li></ul></div>
+</div>
 
-        <li>kv ploshad {{ bron.planirovka.ploshad  }}({{ bron.planirovka.komnat }});
-            kv cena za metr {{ born.cena_za_metr }}rub;
-            kv all cena {% widthratio bron.planirovka.ploshad 1  bron.cena_za_metr %} rub </li>
 
-        <li>fio pokup {{ bron.fio_pokupatel }}; tel pokup {{ bron.tel_pokupatel }}; prim {{ bron.prim }} </li>
-        <li>bron_date_start {{ bron.bron_date_start }}; bron_date_end {{ bron.bron_date_end  }}
-            ;bron_vneseno {{ bron.bron_vneseno }} rub </li>
-    --------------------------------------------------------------------------------------------------------------------
-    {% endfor %}
-
+                     </div></div></div>
+                    </section>
+</div>
+                    <!-- content end -->
 {% endblock %}

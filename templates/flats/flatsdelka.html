@@ -1,30 +1,163 @@
 {% extends 'main/main.html' %}
 {% block content %}
-    sdelka
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}
+ul#id_agenstvo {
+    display: inline-block;
+    float: left;
+}
+ul#id_agenstvo li {display: inline-block;
+    float: left;
+    margin: 10px;}
 
-        <form method="POST" class="post-form">{% csrf_token %}
-            ------------------</br>
-           <li>Корпус: {{ tflat.korpus }}</li>
-           <li>Этаж: {{ tflat.etag }}</li>
-           <li>№ квартиры: {{ tflat.kv_numb }}</li>
-           <li>Площадь: {{ tflat.planirovka.ploshad }}</li>
-           <li>Цена за метр: {{ tflat.cena_za_metr }}</li>
-           <li>Цена за квартиру: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} </li>
-           -------------------</br>
-           <li>ФИО покупателя: {{ tform.fio_pokupatel }}</li>
-           <li> тел. покупателя:(+79880000000){{ tform.tel_pokupatel }} </li>
-           <li>Канал привлечения{{ tform.kanal_pr }}</li>
-           <li> Агенство:{{ tform.agenstvo }}</li>
-           <li> Примечание: {{ tform.prim }}</li>
-        <li><button type="submit" name = 'bron' class="save btn btn-default">Установить бронь</button>
-        <input value="Отмена" type="button" onclick="location.href='/apparts'" /></li>
+ul#id_agenstvo li  label{display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;}
+input[type="checkbox" i] {background-color: #fff;
+    margin-right: 3px;
+    width: 16px;}
+ select#id_kanal_pr {
+    max-width: 100%;
+    height: 55px;
+    width: 100%;
+    border: 0 none;
+    padding: 0 10px;
+    background: #fff;
+    color: #666;
+    border: 1px solid #e5e5e5;
+    transition: .2s ease-in-out;
+    transition-property: color,background-color,border;
+}
+</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
 
+                        <!--  section  -->
+                        <section >
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-8">
+<h2 class="uk-text-left">Сделка</h2>
+
+<div class="uk-card uk-card-default uk-card-body">
+        <form method="POST" lass="post-form uk-grid-small" uk-grid>{% csrf_token %}
+        <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+<div class="uk-card uk-card-primary uk-card-small uk-card-body">
+           <p class="uk-card-title">Корпус: {{ tflat.korpus }}<br>
+           Этаж: {{ tflat.etag }}<br>
+           № квартиры: {{ tflat.kv_numb }}<br>
+           Площадь: {{ tflat.planirovka.ploshad }}</p>
+           <h4 class="uk-card-title">Цена м²: {{ tflat.cena_za_metr }} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span><br>
+           Цена квартиры: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span></h4>
+</div>
+<div class="uk-card uk-card-default uk-card-small uk-card-body">
+           ФИО покупателя: {{ tform.fio_pokupatel }}
+           Тел. покупателя:(+79880000000) {{ tform.tel_pokupatel }}
+           <Канал привлечения {{ tform.kanal_pr }}
+</div>
+</div>
+
+<div class="uk-child-width-1-1@m uk-grid-small uk-grid-match" uk-grid>
+<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+           Агенство:<br> {{ tform.agenstvo }}
+</div>
+<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+           Примечание: {{ tform.prim }}
+</div>
+</div>
+
+<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+        <button type="submit" name = 'bron' class="save uk-button uk-button-primary">Оформить сделку</button>
+        <input value="Отмена" type="button" class="uk-button uk-button-default" onclick="location.href='/apparts'" /></li>
+</div>
         </form>
-    </br>
-            ------------------Добавить агенство в справочник------------------
-    <form method="POST" class="post-form">{% csrf_token %}
-            Название агенства {{ tEstForm.ag_name }}
-        <button type="submit" name = 'estateadd' class="save btn btn-default">Добавить агенство</button>
-        <input value="Отмена" type="button" onclick="location.href='/apparts'" />
+ <h5 class="uk-text-left">Добавить агенство в справочник</h5>
+    <form method="POST" class="post-form uk-grid-small" uk-grid>{% csrf_token %}
+
+        <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+        <div>{{ tEstForm.ag_name }}
+        <p class="small">Название агентства</p>
+        </div>
+
+        <div>
+        <button type="submit" name = 'estateadd' class="save uk-button uk-button-primary">Добавить агентство</button>
+        <input value="Отмена" type="button" class="uk-button uk-button-default" onclick="location.href='/apparts'" />
+        </div></div>
     </form>
+
+</div>
+
+ </div>
+                                    <div class="col-md-4"><div class="box-item">
+                                                <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
+
+                                            </div>
+                                    </div>
+                     </div></div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
 {% endblock %}
