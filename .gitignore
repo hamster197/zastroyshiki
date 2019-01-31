@@ -5,7 +5,6 @@ flats/migrations/*.py
 __pycache__
 myvenv
 db.sqlite3
-/static
 /zastroishik/settings.py
 .DS_Store
 .idea
