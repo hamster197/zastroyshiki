@@ -169,7 +169,7 @@ html {overflow: hidden;}
                             <li><a href="{% url 'ipoteca' %}">Ипотека</a></li>
                             <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
                             <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
-                            <li><a href="{% url 'hodStroy' %}" class="ajax">Ход строительства</a></li>
+                            <li><a href="{% url 'blog:hodstroy' %}" class="ajax">Ход строительства</a></li>
                             <li><a href="{% url 'doki' %}" class="ajax">Документы (О компании)</a></li>
                             <li><a href="{% url 'contack' %}" class="ajax">Контакты</a></li>
                         </ul>
@@ -258,12 +258,16 @@ html {overflow: hidden;}
                 <div class="share-container"><ul class="menu">{% if not user.is_authenticated %}
                             <li><a href="{% url 'login' %}" class="share-icon">Войти</a></li>
 
-                            {% endif %}{% if user.is_authenticated %}
+                            {% endif %}
+                    {% if user.is_authenticated %}
                             <li><a href="{% url 'logout' %}" class="share-icon">Выйти</a></li>
                             <li><a href="{% url 'zayavka:allZayav' %}" class="share-icon">Заявки( {{ tn3 }} )</a></li>
                             <li><a href="{% url 'zayavka:newZayav' %}" class="share-icon">Подать заявку</a></li>
                             <li><a href="{% url 'analitics' %}" class="share-icon">Аналитика</a></li>
-                            <li><a href="{% url 'sdelkistat' %}" class="share-icon">Сделки</a></li>    {% endif %}
+                            <li><a href="{% url 'sdelkistat' %}" class="share-icon">Сделки</a></li>
+                            <li><a href="{% url 'blog:stavkiedit' %}" class="share-icon">Кр.Ставки</a></li>
+                            <li><a href="{% url 'blog:hodstnew' %}" class="share-icon">Ход Строит.</a></li>
+                    {% endif %}
                         </ul></div>
             </div>
             <!-- Share container  end-->

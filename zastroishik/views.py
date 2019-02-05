@@ -4,8 +4,10 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
+import blog
+from blog.models import stavki_ip
 from flats.models import flat, agenstv_spr
 from zastroishik.forms import loginform, SdelkiDateForm
 from zayavka.forms import zayavkaFromSaitForm
@@ -73,7 +75,8 @@ def ContactsPageView(request):
     return render(request,'main/contacts.html',{'tpForm':form})
 
 def IpotecaPageView(request):
-    return render(request,'main/ipoteca.html')
+    st = get_object_or_404(stavki_ip, pk=1)
+    return render(request,'main/ipoteca.html',{'st':st})
 
 def FZ214PageView(request):
     return render(request,'main/fz214.html')

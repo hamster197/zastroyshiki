@@ -15,20 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import flats
 from . import views
+import flats
+import blog
 
 app_name='zastr'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'flats/', include('flats.urls')),
     path(r'zayavka/', include('zayavka.urls')),
+    path(r'spr/', include('blog.urls')),
     path(r'login', views.loginView, name='login'),
     path(r'logout', views.logoutView, name='logout'),
     path(r'', views.mainPageView, name='mainpage'),
     path(r'about', views.AboutPageView, name='aboutpage'),
     path(r'apparts', flats.views.FlatPageView, name='allFlatsIndex'),
     path(r'hodstroitelstva', views.HodStroitPageView, name='hodStroy'),
+    #path(r'hodstroitelstva', blog.views IndexHodStView, name='hodStroy'),
     path(r'documents', views.DokumentsPageView, name='doki'),
     path(r'contacts', views.ContactsPageView, name='contack'),
     path(r'ipoteca', views.IpotecaPageView, name='ipoteca'),

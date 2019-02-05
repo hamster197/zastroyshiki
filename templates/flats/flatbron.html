@@ -110,7 +110,7 @@ input[type="checkbox" i] {background-color: #fff;
            № квартиры: {{ tflat.kv_numb }}<br>
            Площадь: {{ tflat.planirovka.ploshad }}</p>
            <h4 class="uk-card-title">Цена м²: {{ tflat.cena_za_metr }} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span><br>
-           Цена квартиры: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span></h4>
+           Цена квартиры: {% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr  %} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span></h4>
 </div>
 <div class="uk-card uk-card-default uk-card-small uk-card-body">
            Дата окончания брони: {{  tform.bron_date_end }}

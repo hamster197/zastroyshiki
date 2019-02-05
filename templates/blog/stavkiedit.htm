@@ -1,0 +1,100 @@
+{% extends 'main/main.html' %}
+{% block content %}
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+
+                        <!--  section  -->
+                        <section >
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-8">
+<h2 class="uk-text-left">Изменить процентные ставки банков</h2>
+<div class="uk-card uk-card-default uk-card-body">
+    <form class="uk-grid-small" uk-grid method="POST">{% csrf_token %}
+        <dl class="uk-description-list">
+        <dt>Сбербанк</dt>Процентная ставка: {{  tform.sber_proc }}Первый взнос:{{ tform.sber_vznos }} Срок кредита:{{ tform.sber_srok }}
+        <dt>BTБ</dt>Процентная ставка: {{  tform.vtb_proc }}Первый взнос:{{ tform.vtb_vznos }} Срок кредита:{{ tform.vtb_srok }}
+        <dt>Альфа-Банк</dt>Процентная ставка: {{  tform.alfa_proc }}Первый взнос:{{ tform.alfa_vznos }} Срок кредита:{{ tform.alfa_srok }}
+        <dt>ГазПромБанк</dt>Процентная ставка: {{  tform.gaz_proc }}Первый взнос:{{ tform.gaz_vznos }} Срок кредита:{{ tform.gaz_srok }}
+        <dt>ПромсвязьБанк</dt>Процентная ставка: {{  tform.prom_proc }}Первый взнос:{{ tform.prom_vznos }} Срок кредита:{{ tform.prom_srok }}
+        <dt>РоссельхозБанк</dt>Процентная ставка: {{  tform.sel_proc }}Первый взнос:{{ tform.sel_vznos }} Срок кредита:{{ tform.sel_srok }}
+        <button type="submit" class="save uk-button uk-button-primary">Сохранить</button>&nbsp;
+        </dl>
+    </form>
+  </div>
+ </div>
+                                    <div class="col-md-4"><div class="box-item">
+                                                <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
+
+                                            </div>
+                                    </div>
+                     </div></div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
+{% endblock %}
+

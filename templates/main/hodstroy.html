@@ -139,4 +139,53 @@
 
                     </div>
                     <!-- content end -->
+<section id="sec1" class="current2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="pr-title">
+                                            Ход строительства
+                                            <span>Этапы строительства жилого комплекса </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="custom-inner-holder">
+                                    <!-- 1 -->
+                                    {% for post in  tpost %}
+                                    <div class="custom-inner">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="cus-inner-title fl-wrap">
+                                                    <h3>{{ post.date_sozd }}</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h4>{{ post.nazv }}</h4>
+                                                <p>{{ post.text }} </p>
+                                        {% if post.pict1 %}
+                                            <img src="{{ MEDIA_URL }}{{ post.pict1 }}">
+                                        {% endif %}
+                                        {% if post.pict2 %}
+                                            <img src="{{ MEDIA_URL }}{{ post.pict2 }}">
+                                        {% endif %}
+                                        {% if post.pict3 %}
+                                            <img src="{{ MEDIA_URL }}{{ post.pict3 }}">
+                                        {% endif %}
+                                        {% if post.pict4 %}
+                                            <img src="{{ MEDIA_URL }}{{ post.pict4 }}">
+                                        {% endif %}
+                                                <span class="custom-inner-dec"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+{% if user.is_authenticated %}
+    <a href="{% url 'blog:hodstedit' idd=post.pk %}" class="share-icon">Редактировать</a>
+{% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+</section>
 {% endblock %}

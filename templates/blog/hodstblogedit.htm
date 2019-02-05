@@ -1,0 +1,101 @@
+{% extends 'main/main.html' %}
+{% block content %}
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+<style>.uk-table th {
+    text-align: unset;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+text.highcharts-credits {
+    display: none;
+}
+svg.highcharts-root {
+    font-family: 'Montserrat', sans-serif !important;
+}
+.share-icon {
+    height: 50px;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 1px;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 11px;
+    line-height: unset;
+    color: #222;
+    font-weight: 600;
+    opacity: 1;
+    border-bottom: none;
+}
+.uk-link, a {
+    color: inherit;}
+.uk-table-small td, .uk-table-small th {
+    background-color: #c7d2d4;
+    border: 1px solid #ffffff;
+    padding: 10px 5px;
+    font-size: 0.92em;
+}
+td.Свободна {
+    background: #97cc64;
+}
+td.Бронь {
+ background: #77b6e7;
+}
+td.Продана {
+    background: #ffd963;
+}
+img.shah {
+    width: 200px;
+    height: auto;
+}
+.uk-dropdown {min-width: 250px;
+}
+.uk-card-title {
+    text-align: left;
+}</style>
+<!--=============== wrapper ===============-->
+            <div id="wrapper">
+                <!-- content-holder  -->
+                <div class="content-holder">
+                    <!--  content -->
+                    <div class="content">
+
+                        <!--  section  -->
+                        <section >
+                            <div class="container">
+                                <div class="contact-details-wrap fl-wrap" id="sec1">
+                                    <div class="row">
+                                    <div class="col-md-8">
+<h2 class="uk-text-left">Добавить ход строительства</h2>
+<div class="uk-card uk-card-default uk-card-body">
+    <form class="uk-grid-small" uk-grid method="POST"  enctype="multipart/form-data">{% csrf_token %}
+        <dl class="uk-description-list">
+        <dt>Заполните необходимые поля:</dt><li>Дата создания: {{  tform.date_sozd }}</li>
+            <li>  Название:{{ tform.nazv }}</li>
+            <li> Полное описание:{{ tform.text }}</li>
+            <li> Картинка №1:{{ tform.pict1 }}</li>
+            <li> Картинка №2:{{ tform.pict2 }}</li>
+            <li> Картинка №3:{{ tform.pict3 }}</li>
+            <li> Картинка №4:{{ tform.pict4 }}</li>
+        <dd> <button type="submit" class="save uk-button uk-button-primary">Сохранить</button>&nbsp;</dd>
+        </dl>
+    </form>
+  </div>
+ </div>
+                                    <div class="col-md-4"><div class="box-item">
+                                                <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
+
+                                            </div>
+                                    </div>
+                     </div></div></div>
+                    </section>
+
+                    </div>
+                    <!-- content end -->
+{% endblock %}
+
