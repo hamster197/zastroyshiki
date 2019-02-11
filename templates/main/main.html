@@ -18,26 +18,35 @@
         <link rel="shortcut icon" href="/static/images/favicon.ico">
     </head>
 <style>
+footer.content-footer {
+    position: relative;
+    float: left;
+    width: 100%;
+    left: 0;
 
+}
+header.main-header {
+ padding-left: 0;
+}
 .clients-list a {
     color: white;
 }
 
 .clients-list li {
-    background: #3fa99e;
+    background: #80a4de;
 }
 
 .serv-price-wrap {
-    background: #3fa99e;
+    background: #80a4de;
 }
 .header-section {
-    background: #3fa99e;
+    background: #80a4de;
 }
 .to-top {
-    background: #3fa99e;
+    background: #80a4de;
 }
 .flat-btn {
-    background: #3fa99e;
+    background: #80a4de;
     border: 1px solid #fff;
 }
 a.pop.share-icon.share-icon-facebook {
@@ -75,22 +84,46 @@ p.small {
     font-size: 1.2em;
     font-weight: 600;
 }
+.blink {
+  animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  animation-duration: 2s;
+  -webkit-animation-name: blinker;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 2s;
+}
+
+@keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
 @media (min-width: 1000px) {
 html {overflow: hidden;}
 .logo-holder img {
     width: auto;
     height: 110px !important;
     float: left;
-    margin-left: 100px;
+    /*margin-left: 100px;*/
     background: #f9f9f9;
 }
     .logo-holder {
     padding-top: unset;
 }
+.main-footer {
+    z-index: 20;
+}
 .show-search {
-    background: #3fa99e;
+    background: #e20105;
     color: white;
-    font-size: 2em;}
+    font-size: 2em;
+}
 .show-share-wrap div img {
     width: auto;
     height: 26px;
@@ -110,6 +143,11 @@ html {overflow: hidden;}
 }
     .logo-holder {
     padding-top: unset;
+}
+.show-search {
+    background: #e20105;
+    color: white;
+    font-size: 2em;
 }
 }
 @media only screen and (max-width: 540px){
@@ -135,7 +173,7 @@ html {overflow: hidden;}
             <!--================= header ================-->
             <header class="main-header">
                 <!-- logo -->
-                <a class="logo-holder" href="/"><img src="/static/images/logo-gp-2.png" alt=""></a>
+                <a class="logo-holder" href="/"><img src="/static/images/logo-gp-3.png" alt=""></a>
                 <!-- logo end -->
                 <!-- share button-->
                 <div class="show-share-wrap">
@@ -143,15 +181,15 @@ html {overflow: hidden;}
                 </div>
                 <!-- share button end-->
 <!-- search button-->
-                <div class="show-search show-fixed-search vissearch"><i class="fa fa-phone"></i></div>
+                <div class=" show-search show-fixed-search vissearch"><i class="fa fa-phone blink"></i></div>
                 <!-- search button end -->
                 <div class="sb-menu-button-wrap">
                     <div class="sb-menu-button vis-m"><span></span><span></span><span></span></div>
                 </div>
                 <div class="header-info">
                     <ul>
-                        <li><a href="#"> <span>Звоните:</span> 8 (800) 300-00-60</a></li>
-                        <li><a href="#"> <span>Адрес:</span> г. Сочи ул.Тимирязева 34Б</a></li>
+                        <li><a href="tel:+78003000060"> <span>Звоните:</span> 8 (800) 300-00-60</a></li>
+                        <li><a href="{% url 'contack' %}"> <span>Адрес:</span> г. Сочи ул.Тимирязева 34Б</a></li>
                     </ul>
                 </div>
             </header>
@@ -166,7 +204,7 @@ html {overflow: hidden;}
                         <ul class="menu">
                             <li><a href="/" class="ajax">Главная (О проекте)</a></li>
                             <li><a href="{% url 'allFlatsIndex' %}" class="ajax">Выбрать квартиру</a></li>
-                            <li><a href="{% url 'ipoteca' %}">Ипотека</a></li>
+                            <!--<li><a href="{% url 'ipoteca' %}">Ипотека</a></li>-->
                             <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
                             <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
                             <li><a href="{% url 'blog:hodstroy' %}" class="ajax">Ход строительства</a></li>
@@ -183,12 +221,12 @@ html {overflow: hidden;}
             {% block content %} {% load static %}{% endblock %}
 
                     <!--=============== content-footer   ===============-->
-<div class="height-emulator"></div>
+<!--<div class="height-emulator"></div>-->
                     <footer class="content-footer">
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href="index.html"><img src="/static/images/logo-gp-2.png" alt=""></a>
+                                    <a class="footer-logo" href="index.html"><img src="/static/images/logo-gp-3.png" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="footer-header fl-wrap"><span>01.</span> Связаться с нами</div>
@@ -196,7 +234,7 @@ html {overflow: hidden;}
                                         <ul>
                                             <li><span>Эл.почта:</span><a href="#" target="_blank">info@grandpark.ru</a></li>
                                             <li> <span>Адрес:</span><a href="#" target="_blank">г. Сочи ул.Тимирязева 34Б</a></li>
-                                            <li><span>Телефон:</span><a href="#">8 (800) 300-00-60</a></li>
+                                            <li><span>Телефон:</span><a href="tel:+78003000060">8 (800) 300-00-60</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -3,11 +3,36 @@
 
 {% block content %}
            <div id="wrapper">
-                <!-- content-holder  -->
-                <div class="content-holder scale-bg2">
-                    <!-- home-slider  -->
-                    <div class="fl-wrap full-height hero-content par-bg" data-scrollax-parent="true" >
-                        <div class="bg"  data-bg="static/images/bg/sl1.jpg" data-scrollax="properties: { translateY: '200px' }" ></div>
+<!-- content-holder  -->
+                <div class="content-holder">
+                    <!-- hero content -->
+                    <div class="fs-gallery-wrap home-slider fl-wrap full-height" data-autoplayslider="5000" data-slidereffect="fade" id="sec1">
+                        <div class="slide-progress-container">
+                            <div class="slide-progress-content">
+                                <div class="slide-progress-warp">
+                                    <div class="slide-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-container" data-scrollax-parent="true" >
+                            <div class="swiper-wrapper"  >
+                                <!-- swiper-slide-->
+                                <div class="swiper-slide">
+                                    <div class="bg"  data-bg="/static/images/bg/sl1.jpg" data-scrollax="properties: { translateY: '250px' }" ></div>
+                                </div>
+                                <!-- swiper-slide end-->
+                                <!-- swiper-slide-->
+                                <div class="swiper-slide">
+                                    <div class="bg "  data-bg="/static/images/bg/bg2.jpg" data-scrollax="properties: { translateY: '250px' }" ></div>
+                                </div>
+                                <!-- swiper-slide end-->
+                                <!-- swiper-slide-->
+                                <div class="swiper-slide">
+                                    <div class="bg"  data-bg="/static/images/bg/bg2.jpg" data-scrollax="properties: { translateY: '250px' }" ></div>
+                                </div>
+                                <!-- swiper-slide end-->
+                            </div>
+                        </div>
                         <div class="overlay"></div>
                         <!-- hero-wrap-->
                         <div class="hero-wrap alt">
@@ -27,17 +52,18 @@
                         </div>
                         <!-- hero-wrap end-->
                     </div>
-                    <!-- home-slider end-->
+                    <!-- hero content end-->
+
                     <!--content-->
                     <div class="content">
                             <div class="container">
                                 <div class="clients-list fl-wrap">
                                     <ul>
                                        <li><a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a></li>
-                                        <li><a href="{% url 'ipoteca' %}">Ипотека от 6%</a></li>
+                                        <li>Скоро Ипотека от 6%</li>
                                         <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
                                         <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
-                                        <li><a href="{% url 'remont' %}">Ремонт квартир</a></li>
+                                        <li><a href="{% url 'doki' %}">Документы</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -209,8 +235,8 @@
                                             <div class="parallax-header fl-wrap">
                                                 <span>01.</span>
                                                 <ul>
-                                                    <li><a href="#">Квартира</a></li>
-                                                    <li><a href="#">Новостройка </a></li>
+                                                    <li>Квартира</li>
+                                                    <li>Новостройка</li>
                                                 </ul>
                                             </div>
                                             <img  src="static/images/bg/bg3.jpg"   alt="">
@@ -230,15 +256,15 @@
                                             <div class="parallax-header fl-wrap">
                                                 <span>02.</span>
                                                 <ul>
-                                                    <li><a href="#">Квартира</a></li>
-                                                    <li><a href="#">Новостройка </a></li>
+                                                    <li>Квартира</li>
+                                                    <li>Новостройка</li>
                                                 </ul>
                                             </div>
                                             <img  src="static/images/bg/bg4.jpg"   alt="">
                                             <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'ipoteca' %}">Ипотека</a></h3>
+                                                <h3>Ипотека - скоро</h3>
                                                 <h4>Аккредитация банков: ВТБ, Сбербанк</h4>
-                                                <a href="{% url 'ipoteca' %}" class="btn float-btn flat-btn">Подробнее</a>
+                                                <!--<a href="{% url 'ipoteca' %}" class="btn float-btn flat-btn">Подробнее</a> -->
                                             </div>
                                         </div>
                                     </div>
@@ -252,8 +278,8 @@
                                             <div class="parallax-header fl-wrap">
                                                 <span>03.</span>
                                                 <ul>
-                                                    <li><a href="#">Новостройка</a></li>
-                                                    <li><a href="#">Квартира</a></li>
+                                                    <li>Новостройка</li>
+                                                    <li>Квартира</li>
                                                 </ul>
                                             </div>
                                             <img  src="static/images/bg/bg72.jpg"   alt="">
@@ -273,8 +299,8 @@
                                             <div class="parallax-header fl-wrap">
                                                 <span>04.</span>
                                                 <ul>
-                                                    <li><a href="#">Квартира</a></li>
-                                                    <li><a href="#">Новостройка в Сочи </a></li>
+                                                    <li>Квартира</li>
+                                                    <li>Новостройка в Сочи </li>
                                                 </ul>
                                             </div>
                                             <img  src="static/images/bg/bg6.jpg"   alt="">
