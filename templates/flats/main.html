@@ -82,11 +82,11 @@ img.shah {
                             <div class="container">
                                 <div class="contact-details-wrap fl-wrap" id="sec1">
                                     <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-10">
     <h2 class="uk-text-left">Все квартиры</h2>
 <ul class="uk-subnav uk-subnav-pill" uk-switcher>
-    <li><a href="#">1 корпус</a></li>
-    <li><a href="#">2 корпус</a></li>
+    <li><a href="#">1 жилой дом</a></li>
+    <li><a href="#">2 жилой дом</a></li>
 </ul>
 <ul class="uk-switcher uk-margin">
 <li>
@@ -114,7 +114,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_12etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_12etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_12etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_12etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_12etag.planirovka.ploshad 1  korp1_12etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -148,7 +148,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_11etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_11etag.planirovka.pict }}"></li>
-
+        <li>№ <b>{{  korp1_11etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_11etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_11etag.planirovka.ploshad 1  korp1_11etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -181,7 +181,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_10etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_10etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_10etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_10etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_10etag.planirovka.ploshad 1  korp1_10etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -214,7 +214,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_9etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_9etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_9etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_9etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_9etag.planirovka.ploshad 1  korp1_9etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -247,7 +247,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_8etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_8etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_8etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_8etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_8etag.planirovka.ploshad 1  korp1_8etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -280,7 +280,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_7etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_7etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_7etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_7etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_7etag.planirovka.ploshad 1  korp1_7etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -313,7 +313,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_6etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_6etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_6etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_6etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_6etag.planirovka.ploshad 1  korp1_6etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -346,7 +346,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_5etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_5etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_5etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_5etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_5etag.planirovka.ploshad 1  korp1_5etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -379,7 +379,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_4etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_4etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_4etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_4etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_4etag.planirovka.ploshad 1  korp1_4etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -412,7 +412,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_3etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_3etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_3etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_3etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_3etag.planirovka.ploshad 1  korp1_3etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -445,7 +445,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_2etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_2etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp1_2etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp1_2etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_2etag.planirovka.ploshad 1  korp1_2etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -478,8 +478,8 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp1_1etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
-
-        <li>Цена за м² <b>{{  korp1_1etag.cena_za_metr }}</b> </li>
+<li>№ <b>{{  korp1_1etag.kv_numb }}</b> </li>
+<li>Цена за м² <b>{{  korp1_1etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp1_1etag.planirovka.ploshad 1  korp1_1etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_1etag.pk %}">Изменить цену за метр или статус кв.</a></li>
@@ -519,7 +519,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_12etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_12etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_12etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_12etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_12etag.planirovka.ploshad 1  korp2_12etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -553,7 +553,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_11etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_11etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_11etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_11etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_11etag.planirovka.ploshad 1  korp2_11etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -586,7 +586,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_10etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_10etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_11etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_10etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_10etag.planirovka.ploshad 1  korp2_10etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -619,7 +619,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_9etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_9etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_9etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_9etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_9etag.planirovka.ploshad 1  korp2_9etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -652,7 +652,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_8etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_8etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_8etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_8etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_8etag.planirovka.ploshad 1  korp2_8etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -685,7 +685,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_7etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_7etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_7etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_7etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_7etag.planirovka.ploshad 1  korp2_7etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -718,7 +718,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_6etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_6etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_6etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_6etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_6etag.planirovka.ploshad 1  korp2_6etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -751,7 +751,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_5etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_5etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_5etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_5etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_5etag.planirovka.ploshad 1  korp2_5etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -784,7 +784,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_4etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_4etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_4etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_4etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_4etag.planirovka.ploshad 1  korp2_4etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -817,7 +817,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_3etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_3etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_3etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_3etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_3etag.planirovka.ploshad 1  korp2_3etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -850,7 +850,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_2etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_2etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_2etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_2etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_2etag.planirovka.ploshad 1  korp2_2etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -883,7 +883,7 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_1etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_1etag.planirovka.pict }}"></li>
-
+<li>№ <b>{{  korp2_1etag.kv_numb }}</b> </li>
         <li>Цена за м² <b>{{  korp2_1etag.cena_za_metr }}</b> </li>
         <li>Цена итог: <b>{% widthratio korp2_1etag.planirovka.ploshad 1  korp2_1etag.cena_za_metr %}</b></li>
         {% if user.is_authenticated %}
@@ -902,7 +902,7 @@ img.shah {
 </ul>
 </div>
 
-                                    <div class="col-md-3"><div class="box-item" uk-sticky="bottom: #container-2">
+                                    <div class="col-md-2"><div class="box-item" uk-sticky="bottom: #container-2">
                                                 <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
 
                                             </div>

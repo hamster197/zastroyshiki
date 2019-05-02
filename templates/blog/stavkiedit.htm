@@ -74,15 +74,142 @@ img.shah {
 <h2 class="uk-text-left">Изменить процентные ставки банков</h2>
 <div class="uk-card uk-card-default uk-card-body">
     <form class="uk-grid-small" uk-grid method="POST">{% csrf_token %}
-        <dl class="uk-description-list">
-        <dt>Сбербанк</dt>Процентная ставка: {{  tform.sber_proc }}Первый взнос:{{ tform.sber_vznos }} Срок кредита:{{ tform.sber_srok }}
-        <dt>BTБ</dt>Процентная ставка: {{  tform.vtb_proc }}Первый взнос:{{ tform.vtb_vznos }} Срок кредита:{{ tform.vtb_srok }}
-        <dt>Альфа-Банк</dt>Процентная ставка: {{  tform.alfa_proc }}Первый взнос:{{ tform.alfa_vznos }} Срок кредита:{{ tform.alfa_srok }}
-        <dt>ГазПромБанк</dt>Процентная ставка: {{  tform.gaz_proc }}Первый взнос:{{ tform.gaz_vznos }} Срок кредита:{{ tform.gaz_srok }}
-        <dt>ПромсвязьБанк</dt>Процентная ставка: {{  tform.prom_proc }}Первый взнос:{{ tform.prom_vznos }} Срок кредита:{{ tform.prom_srok }}
-        <dt>РоссельхозБанк</dt>Процентная ставка: {{  tform.sel_proc }}Первый взнос:{{ tform.sel_vznos }} Срок кредита:{{ tform.sel_srok }}
-        <button type="submit" class="save uk-button uk-button-primary">Сохранить</button>&nbsp;
-        </dl>
+    <div class="row">
+    <div class="col-md-6">
+    <table class="uk-table">
+    <thead>
+        <tr>
+            <th>Сбербанк</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.sber_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.sber_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.sber_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="col-md-6">
+        <table class="uk-table">
+    <thead>
+        <tr>
+            <th>ВТБ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.vtb_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.vtb_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.vtb_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    </div>
+
+        <div class="row">
+    <div class="col-md-6">
+    <table class="uk-table">
+    <thead>
+        <tr>
+            <th>Альфа-банк</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.alfa_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.alfa_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.alfa_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="col-md-6">
+        <table class="uk-table">
+    <thead>
+        <tr>
+            <th>ГазПромБанк</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.gaz_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.gaz_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.gaz_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    </div>
+
+        <div class="row">
+    <div class="col-md-6">
+    <table class="uk-table">
+    <thead>
+        <tr>
+            <th>ПромсвязьБанк</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.prom_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.prom_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.prom_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="col-md-6">
+        <table class="uk-table">
+    <thead>
+        <tr>
+            <th>РоссельхозБанк</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Процентная ставка: <br>{{  tform.sel_proc }}</td>
+        </tr>
+        <tr>
+            <td>Первый взнос: <br>{{ tform.sel_vznos }}</td>
+        </tr>
+        <tr>
+            <td>Срок кредита: <br>{{ tform.sel_srok }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    </div>
+<div class="clearfix"></div>
+<span class="custom-inner-dec"></span>
+<div class="row">
+<div class="col-md-12">
+<button type="submit" class="save uk-button uk-button-primary">Сохранить</button>&nbsp;
+</div>
+</div>
+
     </form>
   </div>
  </div>

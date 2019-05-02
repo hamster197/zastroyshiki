@@ -57,7 +57,17 @@ img.shah {
 }
 .uk-card-title {
     text-align: left;
-}</style>
+}
+textarea#id_text {
+    width: 100%;
+}
+input#id_date_sozd {
+    width: 100%;
+}
+input#id_nazv {
+    width: 100%;
+}
+</style>
 <!--=============== wrapper ===============-->
             <div id="wrapper">
                 <!-- content-holder  -->
@@ -75,13 +85,14 @@ img.shah {
 <div class="uk-card uk-card-default uk-card-body">
     <form class="uk-grid-small" uk-grid method="POST"  enctype="multipart/form-data">{% csrf_token %}
         <dl class="uk-description-list">
-        <dt>Заполните необходимые поля:</dt><li>Дата создания: {{  tform.date_sozd }}</li>
-            <li>  Название:{{ tform.nazv }}</li>
-            <li> Полное описание:{{ tform.text }}</li>
-            <li> Картинка №1:{{ tform.pict1 }}</li>
-            <li> Картинка №2:{{ tform.pict2 }}</li>
-            <li> Картинка №3:{{ tform.pict3 }}</li>
-            <li> Картинка №4:{{ tform.pict4 }}</li>
+        <dt>Заполните необходимые поля:</dt>
+        <ul><li> <b>Дата создания:</b> <br>&#8195;<br>{{  tform.date_sozd }}</li>
+            <li> <b>Название:</b> <br>&#8195;<br>{{ tform.nazv }}</li>
+            <li> <b>Полное описание:</b> <br>&#8195;<br>{{ tform.text }}</li>
+            <li> <b>Картинка №1:</b> {{ tform.pict1 }}</li>
+            <li> <b>Картинка №2:</b> {{ tform.pict2 }}</li>
+            <li> <b>Картинка №3:</b> {{ tform.pict3 }}</li>
+            <li> <b>Картинка №4:</b> {{ tform.pict4 }}</li></ul>
         <dd> <button type="submit" class="save uk-button uk-button-primary">Сохранить</button>&nbsp;</dd>
         </dl>
     </form>

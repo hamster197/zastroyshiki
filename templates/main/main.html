@@ -31,7 +31,19 @@ header.main-header {
 .clients-list a {
     color: white;
 }
-
+.clients-list span.bage {
+    background: #e20105;
+    color: #fff;
+    position: relative;
+    margin-top: -40px;
+    float: right;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: .4px;
+    padding: 8px 12px;
+    z-index: 9;
+}
 .clients-list li {
     background: #80a4de;
 }
@@ -188,7 +200,7 @@ html {overflow: hidden;}
                 </div>
                 <div class="header-info">
                     <ul>
-                        <li><a href="tel:+78003000060"> <span>Звоните:</span> 8 (800) 300-00-60</a></li>
+                        <li><a class="blink" href="tel:+78002343060"> <span>Звоните:</span>  8 (800) 234-30-60</a></li>
                         <li><a href="{% url 'contack' %}"> <span>Адрес:</span> г. Сочи ул.Тимирязева 34Б</a></li>
                     </ul>
                 </div>
@@ -205,7 +217,7 @@ html {overflow: hidden;}
                             <li><a href="/" class="ajax">Главная (О проекте)</a></li>
                             <li><a href="{% url 'allFlatsIndex' %}" class="ajax">Выбрать квартиру</a></li>
                             <!--<li><a href="{% url 'ipoteca' %}">Ипотека</a></li>-->
-                            <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
+                            <!--<li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>-->
                             <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
                             <li><a href="{% url 'blog:hodstroy' %}" class="ajax">Ход строительства</a></li>
                             <li><a href="{% url 'doki' %}" class="ajax">Документы (О компании)</a></li>
@@ -232,9 +244,9 @@ html {overflow: hidden;}
                                     <div class="footer-header fl-wrap"><span>01.</span> Связаться с нами</div>
                                     <div class="footer-box fl-wrap">
                                         <ul>
-                                            <li><span>Эл.почта:</span><a href="#" target="_blank">info@grandpark.ru</a></li>
-                                            <li> <span>Адрес:</span><a href="#" target="_blank">г. Сочи ул.Тимирязева 34Б</a></li>
-                                            <li><span>Телефон:</span><a href="tel:+78003000060">8 (800) 300-00-60</a></li>
+                                            <li><span>Эл.почта:</span><a href="mailto:newhousesochi1@mail.ru">newhousesochi1@mail.ru</a></li>
+                                            <li> <span>Адрес:</span><a href="{% url 'contack' %}" target="_blank">г. Сочи ул.Тимирязева 34Б</a></li>
+                                            <li><span>Телефон:</span><a href="tel:+78002343060"> 8 (800) 234-30-60</a></li>
                                         </ul>
                                     </div>
                                 </div>

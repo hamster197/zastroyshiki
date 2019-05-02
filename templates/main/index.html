@@ -2,6 +2,7 @@
 
 
 {% block content %}
+<style>.slide-progress{background: #7da0d9;}</style>
            <div id="wrapper">
 <!-- content-holder  -->
                 <div class="content-holder">
@@ -60,7 +61,7 @@
                                 <div class="clients-list fl-wrap">
                                     <ul>
                                        <li><a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a></li>
-                                        <li>Скоро Ипотека от 6%</li>
+                                        <li><span class="bage">Скоро</span><span style="color:#c2c2c2;">Ипотека</span></li>
                                         <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
                                         <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
                                         <li><a href="{% url 'doki' %}">Документы</a></li>
@@ -87,10 +88,10 @@
                                                         <li><span>•</span>Неподтопляемая территория</li>
                                                         <li><br>Удаленность:<br></li>
                                                         <li>38 минут (36 км) до международного аэропорта Сочи</li>
-                                                        <li>26 минут (6,2 км) до железнодорожного вокзала Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.716447%2C43.614312&mode=routes&rtext=43.630658%2C39.722994~43.591570%2C39.727970&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка маршрута)</a></li>
+                                                        <li>26 минут (6,3 км) до железнодорожного вокзала Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.716447%2C43.614312&mode=routes&rtext=43.630658%2C39.722994~43.591570%2C39.727970&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка маршрута)</a></li>
                                                         <li>26 минут (7,1 км) до морского порта Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.733749%2C43.607947&mode=routes&rtext=43.629306%2C39.724615~43.580856%2C39.718311&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка на маршрут)</a></li>
                                                         <li>2 км до моря: пляж “Салют”, пляж “Фазатрон”</li>
-                                                        <li>25 минут (5,3 км) до Моремола</li>
+                                                        <li>25 минут (5,3 км) до Моремолла</li>
                                                     </ul>
 
                                                 <span class="bold-separator"></span>
@@ -124,7 +125,7 @@
                                                 <div class="clearfix"></div>
                                                 <br><br>
                                                 <div class="box-item">
-                                                <img src="static/images/bg/bg5.jpg" class="respimg" alt="">
+                                                <img src="/static/images/bg/bg5.jpg" class="respimg" alt="">
 
                                                 </div>
                                             </div>
@@ -157,7 +158,7 @@
                                                 <ul style="padding-top: 0;list-style-type: none;" class="pr-list">
                                                         <li>Площадь земельного участка 9022 кв.м.</li>
                                                         <li>Площадь застройки 1580,67 кв.м.</li>
-                                                        <li>Общая площадь зданий 17 46,88 кв.м.</li>
+                                                        <li>Общая площадь зданий 17 446,88 кв.м.</li>
                                                         <li>Сейсмоустойчивость 8 баллов</li>
                                                         <li>Коммуникации: газоснабжение, водоснабжение, водоотведение, электроснабжение.</li>
                                                 </ul>
@@ -169,7 +170,7 @@
                                                         <li>Подведены: вода, газ, электроснабжение, домофон, спутниковое ТВ</li>
                                                         <li>Установлено газовое оборудование с двухконтурным котлом</li>
                                                 </ul>
-                                                <h3>Ипотека и ФЗ-214</h3>
+                                                <!--<h3>Ипотека и ФЗ-214</h3>
                                                 <div class="clearfix"></div>
                                                 <p>Проект ЖК “Гранд парк” аккредитован в банках: ВТБ, Сбербанк.</p>
                                                 <ul style="padding-top: 0;list-style-type: disc;" class="pr-list">
@@ -179,12 +180,12 @@
                                                         <li>Льготная процентная ставка по ипотеке</li>
                                                         <li>Дополнительной государственной гарантией является отчисление с каждой сделки в фонд защиты прав граждан - участников долевого строительства
 </li>
-                                                </ul>
+                                                </ul>-->
                                                 <h3>Условия покупки</h3>
                                                 <div class="clearfix"></div>
                                                 <ul style="padding-top: 0;list-style-type: disc;" class="pr-list">
                                                         <li>Выбрать квартиру и этаж</li>
-                                                        <li>Позвонить по телефону: 8 800 000 00 00</li>
+                                                        <li>Позвонить по телефону: <a style="color: #3fa99e;font-size: 1.4em;" href="tel:+78002343060">8 (800) 234-30-60</a></li>
                                                         <li>Заключить договор долевого участия в строительстве (зарегистрировать в Росреестре)</li>
                                                         <li>Оплатить стоимость квартиры</li>
 

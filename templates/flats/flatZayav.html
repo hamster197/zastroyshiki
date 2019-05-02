@@ -91,6 +91,7 @@ body {background: #fff;}
 <h3 class="uk-card-title">Бронирование квартиры</h3>
 <p>Номер квартиры: {{  tflat.kv_numb }}<br>
 Корпус: {{ tflat.korpus }} <br>
+Площадь: {{ tflat.planirovka.ploshad }} м²<br>
 Планировка: {% if tflat.planirovka.komnat == 'Студия'  %}{{ tflat.planirovka.komnat }} {% else %}{{ tflat.planirovka.komnat }} квартира{% endif %}</p>
 <h4 class="uk-card-title">{% widthratio tflat.planirovka.ploshad 1  tflat.cena_za_metr %} <span style="font-size: 0.88em;"><i class="fa fa-rub"></i></span></h4>
 </div>
