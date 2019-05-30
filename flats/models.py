@@ -38,7 +38,9 @@ class flat(models.Model):
                     ('12 Этаж', '12 Этаж'))
     etag = models.CharField(max_length=15,verbose_name='Этаж:', choices=etag_choises, default='', blank=False)
     kv_numb = models.CharField(max_length=5, verbose_name='№ квартиры:', default='')
-    cena_za_metr = models.IntegerField(verbose_name='Цена за метр:', default=80000,validators=[MinValueValidator(10000)])
+    #cena_za_metr = models.IntegerField(verbose_name='Цена за метр:', default=80000,validators=[MinValueValidator(10000)])
+    cena_za_metr = models.FloatField(verbose_name='Цена за метр:', default=80000,
+                                       validators=[MinValueValidator(10000)])
     vid_choises = (('на горы','на горы'),('на горы и море','на горы и море'),('на море и город','на море и город'),
                    ('на парк','на парк'),('во двор','во двор'))
     vid = models.CharField(max_length=40, verbose_name='Вид:', choices=vid_choises, default='')
