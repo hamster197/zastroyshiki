@@ -60,15 +60,27 @@ def FlatPageView(request):
                                               'tkorp2_12etag': korp2_12etag,
                                               })
 
-#################################
-## kvartiri Chang view
-#################################
+# #################################
+# ## kvartiri Chang view
+# #################################
+# @login_required
+# def FlatChangeView(request, idd):
+#     flats = get_object_or_404(flat, pk=idd)
+#     if request.POST:
+#         form = FlatChangeForm(request.POST,instance=flats)
+#         if form.is_valid():
+#                 form.save()
+#                 return redirect('allFlatsIndex')
+#     form = FlatChangeForm(instance=flats)
+#     return render(request,'flats/flatchange.html',{'tform':form})
+
 @login_required
 def FlatChangeView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
+                form.cena_za_metr = form.cena_za_metr / flats.planirovka.ploshad
                 form.save()
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
