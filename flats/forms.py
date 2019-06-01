@@ -7,10 +7,14 @@ from flats.models import flat, agenstv_spr
 from zayavka.models import zayavka
 
 
-class FlatChangeForm(forms.ModelForm):
-    class Meta:
-        model = flat
-        fields = ('cena_za_metr','status',)
+# class FlatChangeForm(forms.ModelForm):
+#     class Meta:
+#         model = flat
+#         fields = ('cena_za_metr','status',)
+class FlatChangeForm(forms.Form):
+    cena_za_metr = forms.IntegerField(label='Цена')
+    st_ch = (('Свободна','Свободна'),('Бронь','Бронь'),('Продана','Продана'))
+    status = forms.ChoiceField(label='Статус', choices=st_ch)
 
 class FlatBronForm(forms.ModelForm):
     class Meta:

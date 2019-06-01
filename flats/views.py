@@ -78,13 +78,15 @@ def FlatPageView(request):
 def FlatChangeView(request, idd):
     flats = get_object_or_404(flat, pk=idd)
     if request.POST:
-        form = FlatChangeForm(request.POST, instance=flats)
+        form = FlatChangeForm(request.POST)
         if form.is_valid():
-                a = form.cena_za_metr
-                form.cena_za_metr = a / flats.planirovka.ploshad
-                form.save()
-                return redirect('allFlatsIndex')
-    form = FlatChangeForm(instance=flats)
+            cena = form.cleaned_data['cena_za_metr']
+            status = form.cleaned_data['status']
+            flats.status = status
+            flats.cena_za_metr = cena / flats.planirovka.ploshad
+            flats.save()
+            return redirect('allFlatsIndex')
+    form = FlatChangeForm(initial={'cena_za_metr': flats.cena_za_metr * flats.planirovka.ploshad, 'status': flats.status})
     return render(request,'flats/flatchange.html',{'tform':form})
 
 #################################

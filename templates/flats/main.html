@@ -116,9 +116,11 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_12etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_12etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_12etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_12etag.planirovka.ploshad 1  korp1_12etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_12etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_12etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_12etag.planirovka.ploshad 1  korp1_12etag.cena_za_metr %}</b></li>
+        {% endif %}
+
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_12etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_12etag.status == 'Бронь' and not korp1_12etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_12etag.pk %}">Бронь</a></li>{% endif %}
@@ -152,9 +154,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_11etag.planirovka.pict }}"></li>
         <li>№ <b>{{  korp1_11etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_11etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_11etag.planirovka.ploshad 1  korp1_11etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_11etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_11etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_11etag.planirovka.ploshad 1  korp1_11etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_11etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_11etag.status == 'Бронь' and not korp1_11etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_11etag.pk %}">Бронь</a></li>{% endif %}
@@ -187,9 +190,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_10etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_10etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_10etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_10etag.planirovka.ploshad 1  korp1_10etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_10etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_10etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_10etag.planirovka.ploshad 1  korp1_10etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_10etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_10etag.status == 'Бронь' and not korp1_10etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_10etag.pk %}">Бронь</a></li>{% endif %}
@@ -222,9 +226,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_9etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_9etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_9etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_9etag.planirovka.ploshad 1  korp1_9etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_9etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_9etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_9etag.planirovka.ploshad 1  korp1_9etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_9etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_9etag.status == 'Бронь' and not korp1_9etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_9etag.pk %}">Бронь</a></li>{% endif %}
@@ -257,9 +262,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_8etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_8etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_8etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_8etag.planirovka.ploshad 1  korp1_8etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_8etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_8etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_8etag.planirovka.ploshad 1  korp1_8etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_8etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_8etag.status == 'Бронь' and not korp1_8etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_8etag.pk %}">Бронь</a></li>{% endif %}
@@ -292,9 +298,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_7etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_7etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_7etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_7etag.planirovka.ploshad 1  korp1_7etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_7etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_7etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_7etag.planirovka.ploshad 1  korp1_7etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_7etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_7etag.status == 'Бронь' and not korp1_7etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_7etag.pk %}">Бронь</a></li>{% endif %}
@@ -327,9 +334,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_6etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_6etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_6etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_6etag.planirovka.ploshad 1  korp1_6etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_6etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_6etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_6etag.planirovka.ploshad 1  korp1_6etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_6etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_6etag.status == 'Бронь' and not korp1_6etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_6etag.pk %}">Бронь</a></li>{% endif %}
@@ -362,9 +370,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_5etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_5etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_5etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_5etag.planirovka.ploshad 1  korp1_5etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_5etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_5etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_5etag.planirovka.ploshad 1  korp1_5etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_5etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_5etag.status == 'Бронь' and not korp1_5etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_5etag.pk %}">Бронь</a></li>{% endif %}
@@ -397,9 +406,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_4etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_4etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_4etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_4etag.planirovka.ploshad 1  korp1_4etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_4etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_4etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_4etag.planirovka.ploshad 1  korp1_4etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_4etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_4etag.status == 'Бронь' and not korp1_4etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_4etag.pk %}">Бронь</a></li>{% endif %}
@@ -432,9 +442,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_3etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_3etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_3etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_3etag.planirovka.ploshad 1  korp1_3etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_3etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_3etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_3etag.planirovka.ploshad 1  korp1_3etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_3etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_3etag.status == 'Бронь' and not korp1_3etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_3etag.pk %}">Бронь</a></li>{% endif %}
@@ -467,9 +478,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_2etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_2etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_2etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_2etag.planirovka.ploshad 1  korp1_2etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_2etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_2etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_2etag.planirovka.ploshad 1  korp1_2etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_2etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_2etag.status == 'Бронь' and not korp1_2etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_2etag.pk %}">Бронь</a></li>{% endif %}
@@ -502,9 +514,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp1_1etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp1_1etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp1_1etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp1_1etag.planirovka.ploshad 1  korp1_1etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp1_1etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp1_1etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp1_1etag.planirovka.ploshad 1  korp1_1etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp1_1etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp1_1etag.status == 'Бронь' and not korp1_1etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp1_1etag.pk %}">Бронь</a></li>{% endif %}
@@ -545,9 +558,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_12etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_12etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_12etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_12etag.planirovka.ploshad 1  korp2_12etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_12etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_12etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_12etag.planirovka.ploshad 1  korp2_12etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_12etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_12etag.status == 'Бронь' and not korp2_12etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_12etag.pk %}">Бронь</a></li>{% endif %}
@@ -581,9 +595,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_11etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_11etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_11etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_11etag.planirovka.ploshad 1  korp2_11etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_11etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_11etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_11etag.planirovka.ploshad 1  korp2_11etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_11etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_11etag.status == 'Бронь' and not korp2_11etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_11etag.pk %}">Бронь</a></li>{% endif %}
@@ -614,11 +629,12 @@ img.shah {
         {% endif %}
         <li>Тип  <b>{{  korp2_10etag.planirovka.komnat }}</b></li>
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_10etag.planirovka.pict }}"></li>
-<li>№ <b>{{  korp2_11etag.kv_numb }}</b> </li>
+<li>№ <b>{{  korp2_10etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_10etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_10etag.planirovka.ploshad 1  korp2_10etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_10etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_10etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_10etag.planirovka.ploshad 1  korp2_10etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_10etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_10etag.status == 'Бронь' and not korp2_10etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_10etag.pk %}">Бронь</a></li>{% endif %}
@@ -651,9 +667,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_9etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_9etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_9etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_9etag.planirovka.ploshad 1  korp2_9etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_9etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_9etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_9etag.planirovka.ploshad 1  korp2_9etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_9etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_9etag.status == 'Бронь' and not korp2_9etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_9etag.pk %}">Бронь</a></li>{% endif %}
@@ -686,9 +703,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_8etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_8etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_8etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_8etag.planirovka.ploshad 1  korp2_8etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_8etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_8etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_8etag.planirovka.ploshad 1  korp2_8etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_8etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_8etag.status == 'Бронь' and not korp2_8etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_8etag.pk %}">Бронь</a></li>{% endif %}
@@ -721,9 +739,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_7etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_7etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_7etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_7etag.planirovka.ploshad 1  korp2_7etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_7etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_7etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_7etag.planirovka.ploshad 1  korp2_7etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_7etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_7etag.status == 'Бронь' and not korp2_7etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_7etag.pk %}">Бронь</a></li>{% endif %}
@@ -756,9 +775,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_6etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_6etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_6etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_6etag.planirovka.ploshad 1  korp2_6etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_6etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_6etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_6etag.planirovka.ploshad 1  korp2_6etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_6etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_6etag.status == 'Бронь' and not korp2_6etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_6etag.pk %}">Бронь</a></li>{% endif %}
@@ -791,9 +811,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_5etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_5etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_5etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_5etag.planirovka.ploshad 1  korp2_5etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_5etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_5etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_5etag.planirovka.ploshad 1  korp2_5etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_5etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_5etag.status == 'Бронь' and not korp2_5etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_5etag.pk %}">Бронь</a></li>{% endif %}
@@ -826,9 +847,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_4etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_4etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_4etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_4etag.planirovka.ploshad 1  korp2_4etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_4etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_4etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_4etag.planirovka.ploshad 1  korp2_4etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_4etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_4etag.status == 'Бронь' and not korp2_4etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_4etag.pk %}">Бронь</a></li>{% endif %}
@@ -861,9 +883,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_3etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_3etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_3etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_3etag.planirovka.ploshad 1  korp2_3etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_3etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_3etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_3etag.planirovka.ploshad 1  korp2_3etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_3etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_3etag.status == 'Бронь' and not korp2_3etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_3etag.pk %}">Бронь</a></li>{% endif %}
@@ -896,9 +919,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_2etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_2etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_2etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_2etag.planirovka.ploshad 1  korp2_2etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_2etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_2etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_2etag.planirovka.ploshad 1  korp2_2etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_2etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_2etag.status == 'Бронь' and not korp2_2etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_2etag.pk %}">Бронь</a></li>{% endif %}
@@ -931,9 +955,10 @@ img.shah {
         <li><img class="shah" src="{{MEDIA_URL}}{{ korp2_1etag.planirovka.pict }}"></li>
 <li>№ <b>{{  korp2_1etag.kv_numb }}</b> </li>
         {% comment %}
-        <li>Цена за м² <b>{{  korp2_1etag.cena_za_metr }}</b> </li>
-        <li>Цена итог: <b>{% widthratio korp2_1etag.planirovka.ploshad 1  korp2_1etag.cena_za_metr %}</b></li>
-        {% endcomment %}
+        <li>Цена за м² <b>{{  korp2_1etag.cena_za_metr }}</b> </li>{% endcomment %}
+        {% if korp2_1etag.status == 'Свободна' %}
+        <li>Цена: <b>{% widthratio korp2_1etag.planirovka.ploshad 1  korp2_1etag.cena_za_metr %}</b></li>
+        {% endif %}
         {% if user.is_authenticated %}
             <li class="uk-alert-success" uk-alert><a href="{% url 'flats:flatsChange' idd=korp2_1etag.pk %}">Изменить цену за метр или статус кв.</a></li>
             {%  if not korp2_1etag.status == 'Бронь' and not korp2_1etag.status == 'Продана'  %}<li class="uk-alert-warning" uk-alert><a href="{% url 'flats:flatsBron' idd=korp2_1etag.pk %}">Бронь</a></li>{% endif %}
