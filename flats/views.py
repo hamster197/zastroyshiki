@@ -80,8 +80,8 @@ def FlatChangeView(request, idd):
     if request.POST:
         form = FlatChangeForm(request.POST,instance=flats)
         if form.is_valid():
-                form.cena_za_metr = form.cena_za_metr / flats.planirovka.ploshad
-                form.save()
+                a = form.cena_za_metr
+                form.cena_za_metr = a / flats.planirovka.ploshad
                 return redirect('allFlatsIndex')
     form = FlatChangeForm(instance=flats)
     return render(request,'flats/flatchange.html',{'tform':form})
