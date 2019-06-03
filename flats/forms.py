@@ -13,6 +13,7 @@ from zayavka.models import zayavka
 #         fields = ('cena_za_metr','status',)
 class FlatChangeForm(forms.Form):
     cena_za_metr = forms.IntegerField(label='Цена')
+    cena_za_metr = forms.FloatField(label='Цена')
     st_ch = (('Свободна','Свободна'),('Бронь','Бронь'),('Продана','Продана'))
     status = forms.ChoiceField(label='Статус', choices=st_ch)
 
