@@ -69,7 +69,7 @@ def ContactsPageView(request):
             post.save()
             ss = 'От ' + post.name_kl +' тел.'+str(post.tel)
             send_mail('Поступила новая заявка на сайт', ss , 'zhem-otchet@mail.ru',
-                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+                      ['newhousesochi1@mail.ru'], fail_silently=False, html_message=ss)
     else:
         form = zayavkaFromSaitForm()
     return render(request,'main/contacts.html',{'tpForm':form})

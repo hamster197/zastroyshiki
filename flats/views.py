@@ -158,7 +158,7 @@ def FlatZayavkaPostView(request, idd):
             zayv.status = 'Новая заявка'
             ss = 'Поступила новая заявка на сайт(Бронь) тел. клиента ' + str(zayv.tel)+', ' + flats.korpus +', '+flats.planirovka.komnat+',№ кв. '+flats.kv_numb
             send_mail('Поступила новая заявка на сайт(Бронь)', ss , 'zhem-otchet@mail.ru',
-                      ['hamster197@mail.ru'], fail_silently=False, html_message=ss)
+                      ['newhousesochi1@mail.ru'], fail_silently=False, html_message=ss)
             zayv.save()
             return redirect('allFlatsIndex')
         raise print(form.errors)
