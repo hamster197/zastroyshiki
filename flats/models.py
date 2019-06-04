@@ -72,6 +72,9 @@ class flat(models.Model):
         verbose_name_plural = 'Квартиры'
         #ordering = 'id',
 
+    def price_total(self):
+        return self.cena_za_metr * self.planirovka.ploshad
+
 
 
 
