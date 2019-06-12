@@ -7,7 +7,7 @@ from blog.models import stavki_ip, blog_hod_st
 class flatFields(admin.ModelAdmin):
     list_display = ('kv_numb','korpus','etag','cena_za_metr','status',)
     list_filter = ('korpus','etag',)
-    fields = ['korpus','etag','kv_numb','cena_za_metr','vid','status','sdelka_date','bron_date_start','bron_date_end',
+    fields = ['korpus','etag','kv_numb','planirovka','cena_za_metr','vid','status','sdelka_date','bron_date_start','bron_date_end',
               'bron_vneseno']
 
 class planirovkaFelds(admin.ModelAdmin):
