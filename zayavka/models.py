@@ -9,7 +9,7 @@ class zayavka(models.Model):
                         ('Тел.Звонок','Тел.Звонок'),('Разное','Разное'),('Заявка с сайта','Заявка с сайта'))
     kanal_pr = models.CharField(max_length=35,verbose_name='Источник заявки:', choices=kanal_pr_choises)
     name_kl = models.CharField(max_length=55, verbose_name='Имя клиента:', help_text='Имя')
-    tel = PhoneNumberField(verbose_name='Телефон:',help_text='Ваш номер телефона:')
+    tel = models.CharField(max_length=12, verbose_name='Телефон:',help_text='Ваш номер телефона:')
     budget = models.IntegerField(verbose_name='', default=0)
     text = models.TextField(verbose_name='Описание заявки:')
     status_ch = (('Новая заявка','Новая заявка'),('В работе','В работе'),('Сделка','Сделка'),('Отказ','Отказ'))

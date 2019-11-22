@@ -61,7 +61,7 @@
                                 <div class="clients-list fl-wrap">
                                     <ul>
                                        <li><a href="{% url 'allFlatsIndex' %}">Выбрать квартиру</a></li>
-                                        <li><span class="bage">Скоро</span><span style="color:#c2c2c2;">Ипотека</span></li>
+                                        <li><a href="{% url 'ipoteca' %}">Ипотека</a></li>
                                         <li><a href="{% url 'fz214' %}">Мы работаем по фз 214</a></li>
                                         <li><a href="{% url 'rasr' %}">Квартиры в рассрочку</a></li>
                                         <li><a href="{% url 'doki' %}">Документы</a></li>
@@ -87,11 +87,11 @@
                                                         <li><span>•</span>Выгодное соотношение цена/качество</li>
                                                         <li><span>•</span>Неподтопляемая территория</li>
                                                         <li><br>Удаленность:<br></li>
-                                                        <li>38 минут (36 км) до международного аэропорта Сочи</li>
-                                                        <li>26 минут (6,3 км) до железнодорожного вокзала Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.716447%2C43.614312&mode=routes&rtext=43.630658%2C39.722994~43.591570%2C39.727970&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка маршрута)</a></li>
+                                                        <li>45 минут (36 км) до международного аэропорта Сочи</li>
+                                                        <li>25 минут (6,3 км) до железнодорожного вокзала Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.716447%2C43.614312&mode=routes&rtext=43.630658%2C39.722994~43.591570%2C39.727970&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка маршрута)</a></li>
                                                         <li>26 минут (7,1 км) до морского порта Сочи <a style="color: #3fa99e;" href="https://yandex.ru/maps/239/sochi/?ll=39.733749%2C43.607947&mode=routes&rtext=43.629306%2C39.724615~43.580856%2C39.718311&rtn=1&rtt=auto&sll=39.580032%2C43.708220&sspn=2.982788%2C1.095824&text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0%2034&whatshere%5Bpoint%5D=39.722994%2C43.630658&whatshere%5Bzoom%5D=17&z=13">(ссылка на маршрут)</a></li>
                                                         <li>2 км до моря: пляж “Салют”, пляж “Фазатрон”</li>
-                                                        <li>25 минут (5,3 км) до Моремолла</li>
+                                                        <li>15 минут (5,3 км) до Моремолла</li>
                                                     </ul>
 
                                                 <span class="bold-separator"></span>
@@ -263,9 +263,9 @@
                                             </div>
                                             <img  src="static/images/bg/bg4.jpg"   alt="">
                                             <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3>Ипотека - скоро</h3>
-                                                <h4>Аккредитация банков: ВТБ, Сбербанк</h4>
-                                                <!--<a href="{% url 'ipoteca' %}" class="btn float-btn flat-btn">Подробнее</a> -->
+                                                <h3>Ипотека {% comment  %}- скоро{% endcoment %}</h3>
+                                                <h4>{% comment  %}Аккредитация банков: ВТБ, Сбербанк {% endcomment  %}</h4>
+                                                <a href="{% url 'ipoteca' %}" class="btn float-btn flat-btn">Подробнее</a>
                                             </div>
                                         </div>
                                     </div>

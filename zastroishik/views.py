@@ -43,7 +43,7 @@ def mainPageView(request):
             post.status = 'Новая заявка'
             ss = 'От ' + post.name_kl +' тел.'+str(post.tel)
             send_mail('Поступила новая заявка на сайт', ss , 'zhem-otchet@mail.ru',
-                      ['sawf@rambler.ru'], fail_silently=False, html_message=ss)
+                      ['newhousesochi1@mail.ru'], fail_silently=False, html_message=ss)
             post.save()
     else:
         form = zayavkaFromSaitForm()
